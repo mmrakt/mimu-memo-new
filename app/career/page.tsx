@@ -1,5 +1,5 @@
-import { CareerAnimations } from "./career-animations";
-import { getCareerData } from "./data";
+import { CareerAnimations } from './career-animations';
+import { getCareerData } from './data';
 
 export default function CareerPage() {
   const careerData = getCareerData();
@@ -10,9 +10,7 @@ export default function CareerPage() {
         <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl mb-4 bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
           {careerData.title}
         </h1>
-        <p className="text-xl md:text-2xl text-slate-400 mb-8">
-          {careerData.subtitle}
-        </p>
+        <p className="text-xl md:text-2xl text-slate-400 mb-8">{careerData.subtitle}</p>
         <div className="flex flex-wrap gap-4 justify-center mb-12">
           {careerData.tags.map((tag, index) => (
             <span
@@ -44,18 +42,14 @@ export default function CareerPage() {
             <div
               key={`timeline-${item.date}-${index}`}
               className={`timeline-item group relative mb-16 md:w-1/2 opacity-0 scale-90 transition-all duration-700 ${
-                index % 2 === 0
-                  ? "md:pr-12 md:text-right md:mr-auto"
-                  : "md:left-1/2 md:pl-12"
+                index % 2 === 0 ? 'md:pr-12 md:text-right md:mr-auto' : 'md:left-1/2 md:pl-12'
               }`}
               style={{ transitionDelay: `${index * 0.2}s` }}
             >
               {/* Timeline dot */}
               <div
                 className={`absolute w-5 h-5 bg-slate-900 border-4 border-indigo-600 rounded-full top-6 z-10 transition-all duration-300 group-hover:scale-150 group-hover:border-cyan-400 group-hover:shadow-lg group-hover:shadow-cyan-400/50 ${
-                  index % 2 === 0
-                    ? "md:right-0 md:translate-x-1/2 md:left-auto"
-                    : "md:-left-2.5"
+                  index % 2 === 0 ? 'md:right-0 md:translate-x-1/2 md:left-auto' : 'md:-left-2.5'
                 } left-0`}
               />
 
@@ -68,14 +62,8 @@ export default function CareerPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-1">{item.title}</h3>
                 <p className="text-cyan-400 text-lg mb-4">{item.company}</p>
-                <p className="text-slate-400 leading-relaxed mb-4">
-                  {item.description}
-                </p>
-                <div
-                  className={`flex flex-wrap gap-2 ${
-                    index % 2 === 0 ? "md:justify-end" : ""
-                  }`}
-                >
+                <p className="text-slate-400 leading-relaxed mb-4">{item.description}</p>
+                <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                   {item.skills.map((skill) => (
                     <span
                       key={skill}
@@ -111,7 +99,5 @@ export default function CareerPage() {
     </>
   );
 
-  return (
-    <CareerAnimations heroContent={heroContent} restContent={restContent} />
-  );
+  return <CareerAnimations heroContent={heroContent} restContent={restContent} />;
 }

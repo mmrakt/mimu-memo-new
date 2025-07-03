@@ -1,55 +1,55 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const navItems = [
   { href: '/', label: 'Top' },
   { href: '/blog', label: 'Blog' },
   { href: '/career', label: 'Career' },
   { href: '/portfolio', label: 'Portfolio' },
-]
+];
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.pageYOffset
-      setIsScrolled(scrollPosition > 100)
-    }
+      const scrollPosition = window.pageYOffset;
+      setIsScrolled(scrollPosition > 100);
+    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : ''
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : '';
+  };
 
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false)
-    document.body.style.overflow = ''
-  }
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  };
 
   return (
     <>
-      <header 
+      <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg shadow-indigo-500/5' 
+          isScrolled
+            ? 'bg-slate-900/95 backdrop-blur-sm shadow-lg shadow-indigo-500/5'
             : 'bg-slate-900/80 backdrop-blur-sm'
         } border-b border-indigo-500/20`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 relative group"
             >
               山田 太郎
@@ -62,13 +62,11 @@ export default function Navigation() {
                   key={item.href}
                   href={item.href}
                   className={`relative py-2 text-sm font-medium transition-colors duration-300 hover:text-indigo-400 ${
-                    pathname === item.href 
-                      ? 'text-indigo-400' 
-                      : 'text-slate-300'
+                    pathname === item.href ? 'text-indigo-400' : 'text-slate-300'
                   }`}
                 >
                   {item.label}
-                  <span 
+                  <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-300 ${
                       pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}
@@ -78,22 +76,19 @@ export default function Navigation() {
             </nav>
 
             <button
+              type="button"
               onClick={toggleMobileMenu}
               className="md:hidden p-2 rounded-md text-slate-300 hover:text-indigo-400 hover:bg-slate-800/50 transition-colors"
               aria-label="Toggle mobile menu"
             >
-              {isMobileMenuOpen ? (
-                <X size={24} />
-              ) : (
-                <Menu size={24} />
-              )}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
       </header>
 
       {/* Mobile Menu */}
-      <div 
+      <div
         className={`fixed inset-0 z-40 md:hidden transition-transform duration-300 ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
@@ -102,7 +97,7 @@ export default function Navigation() {
           <nav className="p-6">
             <ul className="space-y-6">
               {navItems.map((item, index) => (
-                <li 
+                <li
                   key={item.href}
                   className="opacity-0 -translate-x-5 animate-in slide-in-from-left duration-300"
                   style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
@@ -111,9 +106,7 @@ export default function Navigation() {
                     href={item.href}
                     onClick={closeMobileMenu}
                     className={`block text-xl font-semibold transition-all duration-300 hover:text-indigo-400 hover:translate-x-2 ${
-                      pathname === item.href 
-                        ? 'text-indigo-400' 
-                        : 'text-slate-200'
+                      pathname === item.href ? 'text-indigo-400' : 'text-slate-200'
                     }`}
                   >
                     {item.label}
@@ -127,11 +120,19 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 z-30 md:hidden"
           onClick={closeMobileMenu}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') {
+              closeMobileMenu();
+            }
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Close mobile menu"
         />
       )}
     </>
-  )
+  );
 }

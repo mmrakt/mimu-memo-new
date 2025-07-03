@@ -1,23 +1,20 @@
-"use client";
+'use client';
 
-import { ChevronDown } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { ChevronDown } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 interface CareerAnimationsProps {
   heroContent: React.ReactNode;
   restContent: React.ReactNode;
 }
 
-export function CareerAnimations({
-  heroContent,
-  restContent,
-}: CareerAnimationsProps) {
+export function CareerAnimations({ heroContent, restContent }: CareerAnimationsProps) {
   const heroRef = useRef<HTMLDivElement>(null);
   const scrollIndicatorRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     // Reveal on scroll
-    const reveals = document.querySelectorAll(".reveal");
+    const reveals = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       reveals.forEach((element) => {
         const windowHeight = window.innerHeight;
@@ -25,13 +22,13 @@ export function CareerAnimations({
         const elementVisible = 150;
 
         if (elementTop < windowHeight - elementVisible) {
-          element.classList.add("opacity-100", "translate-y-0");
-          element.classList.remove("opacity-0", "translate-y-8");
+          element.classList.add('opacity-100', 'translate-y-0');
+          element.classList.remove('opacity-0', 'translate-y-8');
         }
       });
     };
 
-    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
     // Timeline items animation
@@ -39,15 +36,15 @@ export function CareerAnimations({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "scale-100");
-            entry.target.classList.remove("opacity-0", "scale-90");
+            entry.target.classList.add('opacity-100', 'scale-100');
+            entry.target.classList.remove('opacity-0', 'scale-90');
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
-    const timelineItems = document.querySelectorAll(".timeline-item");
+    const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach((item) => observer.observe(item));
 
     // Parallax effect and scroll indicator visibility
@@ -57,7 +54,7 @@ export function CareerAnimations({
         heroRef.current.style.transform = `translateY(${scrolled * 0.5}px)`;
         heroRef.current.style.opacity = `${1 - scrolled / 600}`;
       }
-      
+
       // Hide scroll indicator when scrolled
       if (scrollIndicatorRef.current) {
         const opacity = Math.max(0, 1 - scrolled / 300);
@@ -70,17 +67,17 @@ export function CareerAnimations({
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", revealOnScroll);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', revealOnScroll);
+      window.removeEventListener('scroll', handleScroll);
       timelineItems.forEach((item) => observer.unobserve(item));
     };
   }, []);
 
   const scrollToTimeline = () => {
-    document.getElementById("timeline")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -89,15 +86,15 @@ export function CareerAnimations({
       <div className="fixed inset-0 -z-10 opacity-5">
         <div
           className="absolute inset-0 bg-gradient-radial from-indigo-600 via-transparent to-transparent animate-pulse-slow"
-          style={{ animationDuration: "20s" }}
+          style={{ animationDuration: '20s' }}
         />
         <div
           className="absolute inset-0 bg-gradient-radial from-cyan-600 via-transparent to-transparent animate-pulse-slow"
-          style={{ animationDuration: "20s", animationDelay: "6.67s" }}
+          style={{ animationDuration: '20s', animationDelay: '6.67s' }}
         />
         <div
           className="absolute inset-0 bg-gradient-radial from-amber-600 via-transparent to-transparent animate-pulse-slow"
-          style={{ animationDuration: "20s", animationDelay: "13.33s" }}
+          style={{ animationDuration: '20s', animationDelay: '13.33s' }}
         />
       </div>
 

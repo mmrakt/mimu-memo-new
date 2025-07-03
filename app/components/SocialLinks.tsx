@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from 'lucide-react'
+import { Github, Linkedin, Twitter } from 'lucide-react';
 
 const socialLinks = [
   {
@@ -19,13 +19,13 @@ const socialLinks = [
     icon: Twitter,
     ariaLabel: 'Twitter profile',
   },
-]
+];
 
 export default function SocialLinks() {
   return (
     <div className="flex space-x-4 mt-6">
       {socialLinks.map((social) => {
-        const Icon = social.icon
+        const Icon = social.icon;
         return (
           <a
             key={social.name}
@@ -37,8 +37,8 @@ export default function SocialLinks() {
           >
             <Icon size={20} />
           </a>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

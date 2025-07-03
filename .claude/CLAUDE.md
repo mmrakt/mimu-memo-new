@@ -8,7 +8,7 @@
 - Reading before writing to a file
 - Use UTF-8 character code
 
-### File Structure
+### File Structure and component design
 
 - separate modules by features and follow the single responsibility principle
 - barrel exports (re-exports from index.ts) are strictly prohibited
@@ -16,6 +16,7 @@
 - Each module is imported directly and explicit dependencies are maintained
 - Do not use relative paths, but use absolute paths using import alias
   - e.g. `import { foo } from '@/foo'`
+- Components must be divided into appropriate granularities for improved readability and maintainability.
 
 #### Naming Rules
 
