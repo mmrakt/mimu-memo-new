@@ -1,33 +1,33 @@
-import Link from 'next/link'
-import SocialLinks from './SocialLinks'
+import Link from "next/link";
+import SocialLinks from "./SocialLinks";
 
 const footerSections = [
   {
-    title: 'Quick Links',
+    title: "Quick Links",
     links: [
-      { href: '/', label: 'Home' },
-      { href: '/about', label: 'About Me' },
-      { href: '/projects', label: 'Projects' },
-      { href: '/contact', label: 'Contact' },
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About Me" },
+      { href: "/projects", label: "Projects" },
+      { href: "/contact", label: "Contact" },
     ],
   },
   {
-    title: 'Recent Posts',
+    title: "Recent Posts",
     links: [
-      { href: '/blog/post1', label: 'Next.js 14の新機能' },
-      { href: '/blog/post2', label: 'TypeScriptベストプラクティス' },
-      { href: '/blog/post3', label: 'React Server Components解説' },
+      { href: "/blog/post1", label: "Next.js 14の新機能" },
+      { href: "/blog/post2", label: "TypeScriptベストプラクティス" },
+      { href: "/blog/post3", label: "React Server Components解説" },
     ],
   },
   {
-    title: 'Contact',
+    title: "Contact",
     links: [
-      { href: 'mailto:yamada@example.com', label: '📧 yamada@example.com' },
-      { href: 'tel:+81901234567', label: '📱 +81 90-1234-5678' },
-      { href: '#', label: '📍 Tokyo, Japan' },
+      { href: "mailto:yamada@example.com", label: "📧 yamada@example.com" },
+      { href: "tel:+81901234567", label: "📱 +81 90-1234-5678" },
+      { href: "#", label: "📍 Tokyo, Japan" },
     ],
   },
-]
+];
 
 export default function Footer() {
   return (
@@ -70,17 +70,23 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="text-center pt-8 border-t border-indigo-500/10">
           <p className="text-slate-400 text-sm">
-            &copy; 2025 山田 太郎. All rights reserved. | Built with{' '}
-            <Link href="#" className="text-indigo-400 hover:text-cyan-400 transition-colors">
+            &copy; 2025 山田 太郎. All rights reserved. | Built with{" "}
+            <Link
+              href="#"
+              className="text-indigo-400 hover:text-cyan-400 transition-colors"
+            >
               love
-            </Link>{' '}
-            and{' '}
-            <Link href="#" className="text-indigo-400 hover:text-cyan-400 transition-colors">
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="#"
+              className="text-indigo-400 hover:text-cyan-400 transition-colors"
+            >
               code
             </Link>
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

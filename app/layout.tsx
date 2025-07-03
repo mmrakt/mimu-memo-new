@@ -1,22 +1,23 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
-import './globals.css';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
-  title: '山田 太郎 - Portfolio',
-  description: 'フルスタックデベロッパーとして、革新的なデジタルソリューションを提供しています。',
+  title: "mimu-memo | mimu's tech blog",
+  description:
+    "フルスタックデベロッパーとして、革新的なデジタルソリューションを提供しています。",
 };
 
 export default function RootLayout({
@@ -26,13 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body 
+      <body
         className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased min-h-screen bg-slate-900 text-slate-100 flex flex-col`}
       >
         <Navigation />
-        <main className="flex-1 pt-16">
-          {children}
-        </main>
+        <main className="flex-1 pt-16">{children}</main>
         <Footer />
       </body>
     </html>
