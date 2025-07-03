@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Footer from '@/app/_components/Footer';
 import Navigation from '@/app/_components/Navigation';
 import AnimatedBackground from './components/AnimatedBackground';
 import FilterButtons from './components/FilterButtons';
@@ -69,7 +68,6 @@ export default function PortfolioPage() {
       </main>
 
       <PortfolioModal item={selectedItem} onClose={handleModalClose} />
-      <Footer />
     </div>
   );
 }

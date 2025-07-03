@@ -1,4 +1,4 @@
-export interface BlogPost {
+export interface MemoPost {
   id: number;
   title: string;
   excerpt: string;
@@ -9,7 +9,7 @@ export interface BlogPost {
   readTime: string;
 }
 
-export const blogPosts: BlogPost[] = [
+export const memoPosts: MemoPost[] = [
   {
     id: 1,
     title: 'React Server Componentsの完全ガイド：次世代のReact開発',

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 const navItems = [
   { href: '/', label: 'Top' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/memo', label: 'Memo' },
   { href: '/career', label: 'Career' },
   { href: '/portfolio', label: 'Portfolio' },
 ];
@@ -52,7 +52,7 @@ export default function Navigation() {
               href="/"
               className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 relative group"
             >
-              山田 太郎
+              mimu-memo
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
             </Link>
 

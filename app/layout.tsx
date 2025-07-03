@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "mimu-memo | mimu's tech blog",
+  title: "mimu-memo | mimu's personal blog",
   description: 'フルスタックデベロッパーとして、革新的なデジタルソリューションを提供しています。',
 };
 

@@ -14,10 +14,10 @@ export default function NotFound() {
             お探しのブログ記事は存在しないか、削除された可能性があります。
           </p>
           <Link
-            href="/blog"
+            href="/memo"
             className="inline-flex items-center px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors duration-300"
           >
-            ブログ一覧に戻る
+            Back to memo page
           </Link>
         </div>
       </div>

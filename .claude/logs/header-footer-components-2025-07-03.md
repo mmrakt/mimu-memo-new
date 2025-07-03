@@ -119,7 +119,7 @@ const spaceGrotesk = Space_Grotesk({
 ```typescript
 const navItems = [
   { href: '/', label: 'Top' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/memo', label: 'Memo' },
   { href: '/career', label: 'Career' },
   { href: '/portfolio', label: 'Portfolio' },
 ]

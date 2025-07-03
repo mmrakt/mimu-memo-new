@@ -87,6 +87,105 @@ body {
   }
 }
 
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(100px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(100px) rotate(-360deg);
+  }
+}
+
+@keyframes spiral {
+  0% {
+    transform: rotate(0deg) translateX(50px) scale(0.5);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotate(180deg) translateX(150px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(360deg) translateX(50px) scale(0.5);
+    opacity: 0.3;
+  }
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes morphing {
+  0%,
+  100% {
+    border-radius: 50%;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    border-radius: 25%;
+    transform: scale(1.2) rotate(90deg);
+  }
+  50% {
+    border-radius: 10%;
+    transform: scale(0.8) rotate(180deg);
+  }
+  75% {
+    border-radius: 35%;
+    transform: scale(1.1) rotate(270deg);
+  }
+}
+
+@keyframes particle-explosion {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--random-x, 200px), var(--random-y, -200px)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes magnetic-pull {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
 @keyframes gradient-x {
   0%,
   100% {
@@ -131,6 +230,32 @@ body {
 
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease forwards;
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-spiral {
+  animation: spiral 15s ease-in-out infinite;
+}
+
+.animate-typewriter {
+  animation:
+    typewriter 2s steps(20, end) 1s forwards,
+    blink 0.5s step-end infinite;
+}
+
+.animate-morphing {
+  animation: morphing 8s ease-in-out infinite;
+}
+
+.animate-magnetic {
+  animation: magnetic-pull 3s ease-in-out infinite;
+}
+
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out infinite;
 }
 
 .animation-delay-300 {

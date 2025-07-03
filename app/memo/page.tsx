@@ -6,16 +6,16 @@ import Link from 'next/link';
 import { useState } from 'react';
 import AnimatedBackground from './components/AnimatedBackground';
 import Pagination from './components/Pagination';
-import { blogPosts } from './data/blogPosts';
+import { memoPosts } from './data/memoPosts';
 
-export default function BlogPage() {
+export default function MemoPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+  const currentPosts = memoPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(memoPosts.length / postsPerPage);
 
   return (
     <div className="relative min-h-screen">
@@ -24,7 +24,7 @@ export default function BlogPage() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold font-space-grotesk mb-6 bg-gradient-to-r from-indigo-500 via-cyan-400 to-amber-500 bg-clip-text text-transparent animate-gradient-x">
-            Tech Blog
+            Memo
           </h1>
           <p className="text-xl text-slate-400">最新の技術トレンドと開発の知見を共有します</p>
         </div>
@@ -33,7 +33,7 @@ export default function BlogPage() {
           {currentPosts.map((post, index) => (
             <Link
               key={post.id}
-              href={`/blog/${post.id}`}
+              href={`/memo/${post.id}`}
               className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-2xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 cursor-pointer opacity-0 animate-fade-in-up block"
               style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
             >

@@ -6,23 +6,23 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import AnimatedBackground from '../components/AnimatedBackground';
 
-import { blogPosts } from '../data/blogPosts';
+import { memoPosts } from '../data/memoPosts';
 
-interface BlogDetailPageProps {
+interface MemoDetailPageProps {
   params: {
     id: string;
   };
 }
 
-export default function BlogDetailPage({ params }: BlogDetailPageProps) {
+export default function MemoDetailPage({ params }: MemoDetailPageProps) {
   const postId = parseInt(params.id);
-  const post = blogPosts.find((p) => p.id === postId);
+  const post = memoPosts.find((p) => p.id === postId);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = blogPosts.filter((p) => p.id !== postId).slice(0, 3);
+  const relatedPosts = memoPosts.filter((p) => p.id !== postId).slice(0, 3);
 
   return (
     <div className="relative min-h-screen">
@@ -30,7 +30,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Link
-          href="/blog"
+          href="/memo"
           className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors mb-8"
         >
           <ArrowLeft className="w-5 h-5" />
@@ -194,7 +194,7 @@ async function ServerComponent() {
             {relatedPosts.map((relatedPost) => (
               <Link
                 key={relatedPost.id}
-                href={`/blog/${relatedPost.id}`}
+                href={`/memo/${relatedPost.id}`}
                 className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 block"
               >
                 <div className="relative h-32 bg-gradient-to-br from-indigo-600 to-cyan-600">

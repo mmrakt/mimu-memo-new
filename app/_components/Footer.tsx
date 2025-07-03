@@ -14,9 +14,9 @@ const footerSections = [
   {
     title: 'Recent Posts',
     links: [
-      { href: '/blog/post1', label: 'Next.js 14の新機能' },
-      { href: '/blog/post2', label: 'TypeScriptベストプラクティス' },
-      { href: '/blog/post3', label: 'React Server Components解説' },
+      { href: '/memo/post1', label: 'Next.js 14の新機能' },
+      { href: '/memo/post2', label: 'TypeScriptベストプラクティス' },
+      { href: '/memo/post3', label: 'React Server Components解説' },
     ],
   },
   {

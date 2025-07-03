@@ -1,4 +1,4 @@
-# mimu' tech blog
+# mimu' personal blog
 
 エンジニア`mimu`の個人サイト。
 
@@ -13,11 +13,11 @@
     - zenn
     - qiita
     - wantedly
-- blog（`/blog`）
-  - `/blog/page/x`でページネーション
-  - tags(`/blog/tags`): タグ一覧
-  - tag ページ（`/blog/tags/xxx`）:タグの記事一覧
-    - `/blog/tags/xxx/page/1`でページネーション
+- memo（`/memo`）
+  - `/memo/page/x`でページネーション
+  - tags(`/memo/tags`): タグ一覧
+  - tag ページ（`/memo/tags/xxx`）:タグの記事一覧
+    - `/memo/tags/xxx/page/1`でページネーション
 - carrer(`/career`)
   - キャリア遍歴を時系列でいい感じに表示する
   - PDF 出力もできる（local 専用, md-to-pdf）
