@@ -5,6 +5,8 @@
 - Do not write code comments as much as possible. When writing code comments, write about "why" rather than "what"
 - All code comments and messages are written in Japanese
 - If searching web, use `gemini` instead of `Web_Search`(/gemini-search command)
+- Reading before writing to a file
+- Use UTF-8 character code
 
 ### File Structure
 
