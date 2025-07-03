@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
-import Footer from './components/Footer';
-import Navigation from './components/Navigation';
+import Footer from './_components/Footer';
+import Navigation from './_components/Navigation';
 
 const inter = Inter({
   subsets: ['latin'],

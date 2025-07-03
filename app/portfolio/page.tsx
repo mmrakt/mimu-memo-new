@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Footer from '@/app/components/Footer';
-import Navigation from '@/app/components/Navigation';
+import Footer from '@/app/_components/Footer';
+import Navigation from '@/app/_components/Navigation';
 import AnimatedBackground from './components/AnimatedBackground';
 import FilterButtons from './components/FilterButtons';
 import PortfolioCard from './components/PortfolioCard';
