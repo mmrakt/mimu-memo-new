@@ -1,5 +1,5 @@
-import Link from "next/link";
-import SocialLinks from "./SocialLinks";
+import Link from 'next/link';
+import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   return (
@@ -21,18 +21,12 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="text-center pt-8 border-t border-indigo-500/10">
           <p className="text-slate-400 text-sm">
-            &copy; 2025 山田 太郎. All rights reserved. | Built with{" "}
-            <Link
-              href="#"
-              className="text-indigo-400 hover:text-cyan-400 transition-colors"
-            >
+            &copy; 2025 山田 太郎. All rights reserved. | Built with{' '}
+            <Link href="#" className="text-indigo-400 hover:text-cyan-400 transition-colors">
               love
-            </Link>{" "}
-            and{" "}
-            <Link
-              href="#"
-              className="text-indigo-400 hover:text-cyan-400 transition-colors"
-            >
+            </Link>{' '}
+            and{' '}
+            <Link href="#" className="text-indigo-400 hover:text-cyan-400 transition-colors">
               code
             </Link>
           </p>

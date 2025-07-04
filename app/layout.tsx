@@ -1,23 +1,22 @@
-import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
-import "./globals.css";
-import Footer from "./_components/Footer";
-import Navigation from "./_components/Navigation";
+import type { Metadata } from 'next';
+import { Inter, Space_Grotesk } from 'next/font/google';
+import './globals.css';
+import Footer from './_components/Footer';
+import Navigation from './_components/Navigation';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
 });
 
 export const metadata: Metadata = {
   title: "mimu-memo | mimu's personal site",
-  description:
-    "フルスタックデベロッパーとして、革新的なデジタルソリューションを提供しています。",
+  description: 'フルスタックデベロッパーとして、革新的なデジタルソリューションを提供しています。',
 };
 
 export default function RootLayout({

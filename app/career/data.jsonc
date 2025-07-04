@@ -1,0 +1,277 @@
+{
+  "personalInfo": {
+    "fullName": "三村 彰人",
+    "nickName": "mimu",
+    "summary": "フロントエンド・バックエンド両方の開発経験を持つエンジニア。自走力とキャッチアップ力を活かし、新技術の習得と実務への活用を得意とする。チームリーダーとしてメンバーの育成・サポート経験も有する。",
+    "languages": [
+      {
+        "name": "日本語",
+        "level": "ネイティブ"
+      },
+      {
+        "name": "英語",
+        "level": "ビジネス会話レベル"
+      }
+    ],
+    "education": {
+      "degree": "学部",
+      "major": "経済学部",
+      "university": "大阪公立大学",
+      "period": {
+        "start": "2015-04",
+        "end": "2020-03"
+      }
+    },
+    "contact": {
+      "website": "https://mimu-memo.com/",
+      "github": "https://github.com/mmrakt",
+      "x": "https://x.com/mmrakt",
+      "location": "東京都"
+    }
+  },
+  "workExperience": [
+    {
+      "id": "nijibox",
+      "company": "株式会社ニジボックス",
+      "period": {
+        "start": "2023-05",
+        "end": ""
+      },
+      "role": "エンジニア",
+      "mission": "Webサイト、Webサービス、LP等の開発",
+      "projects": [
+        {
+          "name": "大手自動車メーカーの部品管理システムの新規開発",
+          "period": {
+            "start": "2024-03",
+            "end": "2025-06"
+          },
+          "teamSize": 20,
+          "role": "エンジニア",
+          "work": ["デュアルトラックアジャイルによるスピーディな開発"],
+          "techStacks": ["React", "TypeScript", "Tailwind CSS", "Storybook", "Express", "AWS"],
+          "achievements": [
+            "BEの設計（インフラ、アプリ）",
+            "スキーマ駆動開発の基盤整備",
+            "バッチスクリプトの新規開発、運用設計",
+            "DynamoDBからPostgreSQLへの移行提案と計画策定",
+            "ExpressからNest.jsへの移行提案と定期勉強会の企画"
+          ]
+        },
+        {
+          "name": "人材派遣サービスのLPリニューアルと新規開発",
+          "period": {
+            "start": "2024-01",
+            "end": "2024-03"
+          },
+          "teamSize": 2,
+          "role": "",
+          "techStacks": ["Astro", "TypeScript", "Sass", "Tailwind CSS"],
+          "achievements": ["LPリニューアルと新規開発を並行開発しながら完了しリリース"]
+        },
+        // {
+        //   "name": "大手クラウドベンダーの社内AI活用の調査・提案",
+        //   "period": {
+        //     "start": "2023-10",
+        //     "end": "2023-12"
+        //   },
+        //   "teamSize": 5,
+        //   "role": "エンジニア",
+        //   "techStacks": [],
+        //   "achievements": [""]
+        // },
+        {
+          "name": "大手広告会社の公式HPの英語サイト開発",
+          "period": {
+            "start": "2023-08",
+            "end": "2023-09"
+          },
+          "teamSize": 2,
+          "role": "フロントエンドエンジニア",
+          "techStacks": ["Handlebars.js", "Ghost(Headless CMS)"],
+          "achievements": [
+            "既存の日本語サイトの一部UIリニューアル",
+            "英語サイトの新規開発を納期内に完了しリリース"
+          ]
+        },
+        {
+          "name": "学習塾向けサービス 機能改善",
+          "period": {
+            "start": "2023-06",
+            "end": "2023-07"
+          },
+          "teamSize": 2,
+          "role": "フロントエンドエンジニア",
+          "techStacks": ["EJS", "Sass", "Gulp"],
+          "achievements": ["ユーザー登録画面の機能改善を実施しリリース"]
+        },
+        {
+          "name": "オンライン書店サイト 画面リニューアル",
+          "period": {
+            "start": "2023-05",
+            "end": "2023-06"
+          },
+          "teamSize": 3,
+          "role": "フロントエンドエンジニア",
+          "techStacks": ["Pug", "Sass", "Gulp"],
+          "achievements": [
+            "画面リニューアルを完了しリリース",
+            "既存コードのリファクタリングによる保守性向上"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interworks",
+      "company": "株式会社インターワークス",
+      "period": {
+        "start": "2020-04",
+        "end": "2023-03"
+      },
+      "role": "フルスタックエンジニア → チームリーダー",
+      "mission": "自社Webサービスや関連サブシステムの保守開発・新機能開発",
+      "targetSystems": [
+        "求人広告サイト「工場ワークス」",
+        "顧客用求人・応募者管理システム",
+        "社内用業務管理システム",
+        "その他サブシステム・バッチ処理"
+      ],
+      "projects": [
+        {
+          "name": "「工場ワークス」およびサブシステムの保守運用のリード",
+          "period": {
+            "start": "2021-10",
+            "end": "2023-03"
+          },
+          "role": "エンジニア（リーダー）",
+          "teamType": "保守開発チーム",
+          "teamSize": 4,
+          "techStacks": ["PHP", "Laravel", "TypeScript", "Vue.js", "MySQL", "AWS"],
+          "achievements": [
+            "システム保守開発案件 8件担当",
+            "計測ツールバージョンアップ、ライブラリバージョンアップ（Laravel6->9）のプロジェクトをリード",
+            "システムバグ・仕様調査 10件",
+            "新卒研修企画サポート・オンボーディング体制整備",
+            "輪読会・コードリーディング会の企画・運営",
+            "チームリーダーとしてメンバーのタスク管理・サポート・育成",
+            "モブプロ・ペアプロ・ペアワークの積極導入でナレッジ伝達促進・属人化解消"
+          ]
+        },
+        {
+          "name": "「工場ワークス」の新機能開発・グロースハック",
+          "period": {
+            "start": "2021-04",
+            "end": "2021-09"
+          },
+          "role": "エンジニア（メンバー）",
+          "teamType": "機能開発・拡張チーム",
+          "teamSize": 3,
+          "techStacks": ["PHP", "Laravel", "TypeScript", "Vue.js", "MySQL", "AWS"],
+          "achievements": [
+            "サイト新規機能開発 3件のバックエンド実装をメイン担当",
+            "アラート対応 8件",
+            "定常業務の自動化・効率化による作業工数削減"
+          ]
+        },
+        {
+          "name": "求人広告サイトおよびサブシステムの保守運用",
+          "period": {
+            "start": "2020-04",
+            "end": "2021-03"
+          },
+          "role": "エンジニア（メンバー）",
+          "teamType": "保守開発チーム",
+          "teamSize": 4,
+          "techStacks": ["PHP", "Mojavi", "MySQL", "Python"],
+          "achievements": [
+            "システム保守開発案件 10件担当",
+            "バッチスクリプト新規開発 2件",
+            "システムバグ・仕様調査 5件",
+            "業務改善ツール開発プロジェクトでAPI実装担当"
+          ]
+        }
+      ]
+    }
+  ],
+  "skills": {
+    "levelDefinition": {
+      "1": "基礎的な知識があり、内容を理解できる",
+      "2": "指示通り作業が可能",
+      "3": "指示がなくても自ら提案し、一通りの作業が可能",
+      "4": "機能を熟知しており、チームメンバーへの指導が可能",
+      "5": "その技術に関するスペシャリスト"
+    },
+    "categories": {
+      "programmingLanguages": [
+        { "name": "TypeScript", "level": 3, "experience": 4 },
+        { "name": "PHP", "level": 3, "experience": 3 },
+        { "name": "Go", "level": 1, "experience": 0.5 },
+        { "name": "Rust", "level": 1, "experience": 0.5 },
+        { "name": "Python", "level": 1, "experience": 1 }
+      ],
+      "frontend": [
+        { "name": "React.js", "level": 3, "experience": 3 },
+        { "name": "Vue.js", "level": 2, "experience": 2 },
+        { "name": "Next.js", "level": 2, "experience": 2 },
+        { "name": "Nuxt.js", "level": 1, "experience": 1 },
+        { "name": "Gatsby.js", "level": 2, "experience": 2 },
+        { "name": "Astro", "level": 2, "experience": 1 },
+        { "name": "Tailwind CSS", "level": 3, "experience": 3 },
+        { "name": "Sass/SCSS", "level": 2, "experience": 2 },
+        { "name": "Storybook", "level": 2, "experience": 2 }
+      ],
+      "backend": [
+        { "name": "Laravel", "level": 3, "experience": 3 },
+        { "name": "Express.js", "level": 3, "experience": 2 },
+        { "name": "Node.js", "level": 3, "experience": 3 },
+        { "name": "Mojavi", "level": 2, "experience": 2 }
+      ],
+      "databases": [
+        { "name": "MySQL", "level": 3, "experience": 4 },
+        { "name": "PostgreSQL", "level": 2, "experience": 2 },
+        { "name": "SQLite", "level": 2, "experience": 1 },
+        { "name": "DynamoDB", "level": 2, "experience": 1 }
+      ],
+      "tools": [
+        { "name": "Zod", "level": 2, "experience": 2 },
+        { "name": "Prisma ORM", "level": 2, "experience": 2 },
+        { "name": "GraphQL", "level": 1, "experience": 1 }
+      ],
+      "infrastructure": [
+        { "name": "AWS", "level": 3, "experience": 4 },
+        { "name": "GCP", "level": 1, "experience": 1 },
+        { "name": "Firebase", "level": 2, "experience": 2 },
+        { "name": "Docker", "level": 2, "experience": 3 },
+        { "name": "Nginx", "level": 2, "experience": 3 }
+      ]
+    }
+  },
+  "certifications": [
+    {
+      "name": "PHP7技術者認定初級",
+      "date": "2019-09"
+    },
+    {
+      "name": "AWS Developer Associate",
+      "date": "2024-10"
+    }
+  ],
+  "aboutMe": {
+    "blogUrl": "https://mimu-memo.com/",
+    "description": "パーソナルサイト。ブログやポートフォリオ、キャリア遍歴を集約"
+  },
+  "selfPR": {
+    "autonomy": {
+      "title": "自走力とキャッチアップ力",
+      "content": "大学から独学で開発を学び、ブログでの発信や個人開発を通じて未経験の言語やライブラリについて積極的にキャッチアップしています。またチーム開発においても素早くキャッチアップし、即戦力として活躍してきました。"
+    },
+    "fullstack": {
+      "title": "フルスタック開発経験",
+      "content": "Webフロントエンド、バックエンド両方の知見があります。特定の技術に拘らず、チームのニーズに合わせて最適な技術を選択し、開発を進めることができます。"
+    },
+    "teamwork": {
+      "title": "企画・推進力",
+      "content": "プロジェクトの課題解消やスキルアップのための企画や推進が得意です。主体的に周りを巻き込みながら、チームのパフォーマンスを向上させてきた経験があります。"
+    }
+  }
+}
