@@ -1,11 +1,10 @@
-import { ArrowLeft, Calendar, Clock, X } from 'lucide-react';
+import { ArrowLeft, Calendar, X } from 'lucide-react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import AnimatedBackground from '../components/AnimatedBackground';
-
-import { memoPosts } from '../data';
+import { getAllMemoSlugs, getMemoBySlug, getTagIconPath } from '@/app/memo/utils';
 
 interface MemoDetailPageProps {
   params: Promise<{
@@ -13,41 +12,43 @@ interface MemoDetailPageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  const slugs = await getAllMemoSlugs();
+  return slugs.map((slug) => ({ id: slug }));
+}
+
 export async function generateMetadata({ params }: MemoDetailPageProps): Promise<Metadata> {
   const { id } = await params;
-  const postId = parseInt(id);
-  const post = memoPosts.find((p) => p.id === postId);
+  const memo = await getMemoBySlug(id);
 
-  if (!post) {
+  if (!memo) {
     return {
       title: 'Not Found | mimu-memo',
     };
   }
 
   return {
-    title: `${post.title} | mimu-memo`,
-    description: post.excerpt || `Read about ${post.title} on mimu-memo blog`,
+    title: `${memo.metadata.title} | mimu-memo`,
+    description: `Read about ${memo.metadata.title} on mimu-memo blog`,
     openGraph: {
-      title: post.title,
-      description: post.excerpt || `Read about ${post.title} on mimu-memo blog`,
+      title: memo.metadata.title,
+      description: `Read about ${memo.metadata.title} on mimu-memo blog`,
       type: 'article',
-      publishedTime: post.date,
+      publishedTime: memo.metadata.pubDate,
       authors: ['mimu'],
-      images: post.image ? [{ url: post.image }] : undefined,
     },
   };
 }
 
 export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
   const { id } = await params;
-  const postId = parseInt(id);
-  const post = memoPosts.find((p) => p.id === postId);
+  const memo = await getMemoBySlug(id);
 
-  if (!post) {
+  if (!memo) {
     notFound();
   }
 
-  const relatedPosts = memoPosts.filter((p) => p.id !== postId).slice(0, 3);
+  const { metadata, Component } = memo;
 
   return (
     <div className="relative min-h-screen">
@@ -59,124 +60,36 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
           className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors mb-8"
         >
           <ArrowLeft className="w-5 h-5" />
-          ブログ一覧に戻る
+          メモ一覧に戻る
         </Link>
 
         <article className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-2xl overflow-hidden">
           <header className="text-center p-8 border-b border-indigo-500/10">
+            <div className="mb-6">
+              <Image
+                src={getTagIconPath(metadata.tag)}
+                alt={`${metadata.tag} icon`}
+                width={64}
+                height={64}
+                className="mx-auto mb-4"
+              />
+            </div>
             <h1 className="text-4xl font-bold font-space-grotesk mb-6 bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
-              {post.title}
+              {metadata.title}
             </h1>
             <div className="flex items-center justify-center gap-6 text-slate-400 flex-wrap">
               <div className="flex items-center gap-2">
-                <Image
-                  src="https://placehold.jp/40x40.png"
-                  alt="Author"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
-                <span>山田 太郎</span>
-              </div>
-              <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
-                <span>{post.date}</span>
+                <span>{metadata.pubDate}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span>{post.readTime}</span>
+              <div className="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full text-sm">
+                {metadata.tag}
               </div>
             </div>
           </header>
 
-          <div className="relative h-96 bg-gradient-to-br from-indigo-600 to-cyan-600">
-            <Image
-              src={post.image}
-              alt={post.title}
-              fill
-              className="object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-              }}
-            />
-          </div>
-
           <div className="p-8 space-y-6">
-            <p className="text-slate-300 text-lg leading-relaxed">
-              React Server Components (RSC)
-              は、Reactアプリケーションの構築方法に革命をもたらす新しいアーキテクチャです。この記事では、RSCの基本概念から実践的な実装方法まで、包括的に解説します。
-            </p>
-
-            <h2 className="text-2xl font-bold font-space-grotesk text-slate-100 mt-8 mb-4">
-              なぜReact Server Componentsが必要なのか？
-            </h2>
-            <p className="text-slate-300 leading-relaxed">
-              従来のReactアプリケーションでは、すべてのコンポーネントがクライアントサイドで実行されていました。これにより、以下のような課題が生じていました：
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-slate-300">
-              <li>大きなJavaScriptバンドルサイズ</li>
-              <li>初期ロード時間の増加</li>
-              <li>SEOの課題</li>
-              <li>データフェッチングの複雑さ</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold font-space-grotesk text-slate-100 mt-8 mb-4">
-              React Server Componentsの主な利点
-            </h2>
-            <p className="text-slate-300 leading-relaxed">
-              RSCは、これらの課題を解決する革新的なアプローチを提供します：
-            </p>
-
-            <h3 className="text-xl font-semibold text-slate-100 mt-6 mb-3">
-              1. ゼロバンドルサイズ
-            </h3>
-            <p className="text-slate-300 leading-relaxed">
-              サーバーコンポーネントはクライアントに送信されないため、JavaScriptバンドルサイズを大幅に削減できます。
-            </p>
-
-            <pre className="bg-slate-900/50 border border-indigo-500/20 rounded-lg p-6 overflow-x-auto">
-              <code className="text-cyan-400 font-mono text-sm">
-                {`// ServerComponent.tsx
-async function ServerComponent() {
-  const data = await fetchData(); // サーバーでのみ実行
-  return <div>{data}</div>;
-}`}
-              </code>
-            </pre>
-
-            <h3 className="text-xl font-semibold text-slate-100 mt-6 mb-3">
-              2. 直接的なバックエンドアクセス
-            </h3>
-            <p className="text-slate-300 leading-relaxed">
-              データベースやファイルシステムに直接アクセスできるため、APIエンドポイントが不要になります。
-            </p>
-
-            <blockquote className="border-l-4 border-indigo-500 pl-6 italic text-slate-300 bg-slate-900/30 p-4 rounded-r-lg">
-              &quot;React Server
-              Componentsは、フルスタック開発の新しいパラダイムを提示しています。フロントエンドとバックエンドの境界線が曖昧になり、より統合された開発体験を提供します。&quot;
-            </blockquote>
-
-            <h2 className="text-2xl font-bold font-space-grotesk text-slate-100 mt-8 mb-4">
-              実装のベストプラクティス
-            </h2>
-            <p className="text-slate-300 leading-relaxed">
-              RSCを効果的に活用するためのベストプラクティスをいくつか紹介します：
-            </p>
-            <ol className="list-decimal pl-6 space-y-2 text-slate-300">
-              <li>適切なコンポーネントの分離</li>
-              <li>キャッシング戦略の実装</li>
-              <li>エラーハンドリングの最適化</li>
-              <li>パフォーマンスモニタリング</li>
-            </ol>
-
-            <h2 className="text-2xl font-bold font-space-grotesk text-slate-100 mt-8 mb-4">
-              まとめ
-            </h2>
-            <p className="text-slate-300 leading-relaxed">
-              React Server
-              Componentsは、モダンなWebアプリケーション開発における重要な進化です。適切に実装することで、パフォーマンス、開発効率、ユーザーエクスペリエンスの大幅な向上が期待できます。
-            </p>
+            <Component />
           </div>
 
           <div className="border-t border-indigo-500/10 p-8 text-center">
@@ -212,38 +125,6 @@ async function ServerComponent() {
             </div>
           </div>
         </article>
-
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold text-slate-100 mb-8 text-center">関連記事</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {relatedPosts.map((relatedPost) => (
-              <Link
-                key={relatedPost.id}
-                href={`/memo/${relatedPost.id}`}
-                className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 block"
-              >
-                <div className="relative h-32 bg-gradient-to-br from-indigo-600 to-cyan-600">
-                  <Image
-                    src={relatedPost.image}
-                    alt={relatedPost.title}
-                    fill
-                    className="object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
-                  />
-                </div>
-                <div className="p-4">
-                  <div className="text-sm text-slate-400 mb-2">{relatedPost.date}</div>
-                  <h3 className="text-lg font-semibold text-slate-100 line-clamp-2">
-                    {relatedPost.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
       </div>
     </div>
   );
