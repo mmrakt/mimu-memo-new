@@ -1,4 +1,4 @@
-# mimu' personal blog
+# mimu' personal site
 
 エンジニア`mimu`の個人サイト。
 

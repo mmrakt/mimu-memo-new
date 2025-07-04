@@ -1,1 +1,1 @@
-# mimu's personal blog
+# mimu's personal site

@@ -1,70 +1,72 @@
-'use client';
+"use client";
 
-import { ArrowRight, Briefcase, Code, ExternalLink, FileText, Globe, User } from 'lucide-react';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { MY_NAME, SITE_NAME } from '@/app/config';
+import {
+  ArrowRight,
+  Briefcase,
+  Code,
+  ExternalLink,
+  FileText,
+  Globe,
+  User,
+} from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { MY_NAME, SELF_INTRODUCTION } from "@/app/config";
 
 const quickNavItems = [
   {
-    href: '/memo',
-    title: 'Memo',
-    description: '技術的な学びや知見を共有',
+    href: "/memo",
+    title: "Memo",
+    description: "技術的な学びや知見を共有",
     icon: FileText,
-    color: 'from-cyan-500 to-blue-600',
+    color: "from-cyan-500 to-blue-600",
   },
   {
-    href: '/career',
-    title: 'Career',
-    description: '経歴とスキルセット',
+    href: "/career",
+    title: "Career",
+    description: "経歴とスキルセット",
     icon: Briefcase,
-    color: 'from-purple-500 to-pink-600',
+    color: "from-purple-500 to-pink-600",
   },
   {
-    href: '/portfolio',
-    title: 'Portfolio',
-    description: 'プロジェクトと成果物',
+    href: "/portfolio",
+    title: "Portfolio",
+    description: "プロジェクトと成果物",
     icon: Code,
-    color: 'from-indigo-500 to-cyan-500',
+    color: "from-indigo-500 to-cyan-500",
   },
 ];
 
 const externalLinks = [
   {
-    name: 'X (Twitter)',
-    href: 'https://x.com/',
-    description: '日々の発信',
-    icon: '𝕏',
+    name: "X (Twitter)",
+    href: "https://x.com/",
+    icon: "𝕏",
   },
   {
-    name: 'GitHub',
-    href: 'https://github.com/',
-    description: 'コードリポジトリ',
-    icon: '⚡',
+    name: "GitHub",
+    href: "https://github.com/",
+    icon: "⚡",
   },
   {
-    name: 'Scrapbox',
-    href: 'https://scrapbox.io/',
-    description: '学習メモ',
-    icon: '📝',
+    name: "Scrapbox",
+    href: "https://scrapbox.io/",
+    icon: "📝",
   },
   {
-    name: 'Zenn',
-    href: 'https://zenn.dev/',
-    description: '技術記事',
-    icon: '📚',
+    name: "Zenn",
+    href: "https://zenn.dev/",
+    icon: "📚",
   },
   {
-    name: 'Qiita',
-    href: 'https://qiita.com/',
-    description: 'ナレッジ共有',
-    icon: '💡',
+    name: "Qiita",
+    href: "https://qiita.com/",
+    icon: "💡",
   },
   {
-    name: 'Wantedly',
-    href: 'https://wantedly.com/',
-    description: 'プロフィール',
-    icon: '🤝',
+    name: "Wantedly",
+    href: "https://wantedly.com/",
+    icon: "🤝",
   },
 ];
 
@@ -113,7 +115,11 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <div
-              className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
             >
               {/* Animated Title with Glitch Effect */}
               <div className="relative mb-6 group">
@@ -128,26 +134,34 @@ export default function Home() {
               {/* Typewriter Effect Subtitle */}
               <div className="relative mb-8">
                 <p
-                  className={`text-xl md:text-2xl text-slate-400 font-space-grotesk transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                  style={{ transitionDelay: '300ms' }}
+                  className={`text-xl md:text-2xl text-slate-400 font-space-grotesk transition-all duration-1000 ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
+                  }`}
+                  style={{ transitionDelay: "300ms" }}
                 >
                   <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-indigo-400 animate-typewriter">
-                    フルスタックデベロッパーとして、
+                    {SELF_INTRODUCTION[0]}
                   </span>
                   <br className="hidden md:block" />
                   <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-cyan-400 animate-typewriter animation-delay-2000">
-                    革新的なデジタルソリューションを提供しています
+                    {SELF_INTRODUCTION[1]}
                   </span>
                 </p>
               </div>
 
               {/* Enhanced Buttons with Magnetic Effect */}
               <div
-                className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                style={{ transitionDelay: '600ms' }}
+                className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-1000 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: "600ms" }}
               >
                 <Link
-                  href="/about"
+                  href="/career"
                   className="group relative flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-full hover:from-indigo-500 hover:to-cyan-500 transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-indigo-500/50 animate-pulse-slow overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-gradient-x"></div>
@@ -181,8 +195,12 @@ export default function Home() {
 
             {/* Enhanced Scroll Indicator */}
             <div
-              className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-              style={{ transitionDelay: '1000ms' }}
+              className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: "1000ms" }}
             >
               <div className="relative">
                 <div className="w-6 h-10 border-2 border-indigo-400/50 rounded-full p-1 animate-pulse-slow">
@@ -212,7 +230,7 @@ export default function Home() {
         <section className="py-20 px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-200">
-              サイトナビゲーション
+              Navigation
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {quickNavItems.map((item, index) => {
@@ -222,7 +240,10 @@ export default function Home() {
                     key={item.href}
                     href={item.href}
                     className={`group block p-8 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 opacity-0 animate-fade-in-up`}
-                    style={{ animationDelay: `${index * 200}ms`, animationFillMode: 'forwards' }}
+                    style={{
+                      animationDelay: `${index * 200}ms`,
+                      animationFillMode: "forwards",
+                    }}
                   >
                     <div
                       className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
@@ -251,7 +272,7 @@ export default function Home() {
         <section className="py-20 px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-200">
-              外部リンク
+              External links
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {externalLinks.map((link, index) => (
@@ -261,7 +282,10 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`group block p-6 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 text-center opacity-0 animate-fade-in-up`}
-                  style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                    animationFillMode: "forwards",
+                  }}
                 >
                   <div className="text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
                     {link.icon}
@@ -269,7 +293,6 @@ export default function Home() {
                   <h3 className="text-sm font-semibold mb-2 text-slate-100 group-hover:text-indigo-400 transition-colors">
                     {link.name}
                   </h3>
-                  <p className="text-xs text-slate-400 mb-2">{link.description}</p>
                   <ExternalLink
                     size={12}
                     className="mx-auto text-indigo-400 group-hover:text-cyan-400 transition-colors"
