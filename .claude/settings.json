@@ -77,7 +77,8 @@
       "Bash(bun add:*)",
       "Bash(bun test:*)",
       "Bash(mv:*)",
-      "Bash(bun check:*)"
+      "Bash(bun check:*)",
+      "Bash(rm -rf ~/)"
     ],
     "deny": []
   },

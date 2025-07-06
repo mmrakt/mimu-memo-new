@@ -3,8 +3,13 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllMemoSlugs, getMemoBySlug, getTagIconPath } from '@/app/memo/utils';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import { getTagIconPath } from '@/app/memo/components/utils';
+import { getAllMemoSlugs, getMemoBySlug } from '@/app/memo/utils';
 import AnimatedBackground from '../components/AnimatedBackground';
+import styles from './markdown.module.css';
 
 interface MemoDetailPageProps {
   params: Promise<{
@@ -48,7 +53,7 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
     notFound();
   }
 
-  const { metadata, Component } = memo;
+  const { metadata, Component, content, isMarkdown } = memo;
 
   return (
     <div className="relative min-h-screen">
@@ -89,7 +94,15 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
           </header>
 
           <div className="p-8 space-y-6">
-            <Component />
+            {isMarkdown && content ? (
+              <div className={styles.markdown}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                  {content}
+                </ReactMarkdown>
+              </div>
+            ) : Component ? (
+              <Component />
+            ) : null}
           </div>
 
           <div className="border-t border-indigo-500/10 p-8 text-center">

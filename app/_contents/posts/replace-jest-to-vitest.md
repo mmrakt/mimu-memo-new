@@ -1,9 +1,8 @@
-export const metadata = {
-  title: 'Jest から Vitest への乗り換えメモ',
-  tag: 'vite',
-  pubDate: '2022-10-15',
-  id: 'example'
-}
+---
+title: Jest から Vitest への乗り換えメモ
+tag: vite
+pubDate: 2022-10-15
+---
 
 ## 動機
 
@@ -40,27 +39,27 @@ yarn add -D vitest jsdom c8
 
 ```js
 /// <reference types="vitest" />
-import path from "path";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import path from 'path'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: ["./test/setupTests.ts"],
+    environment: 'jsdom',
+    setupFiles: ['./test/setupTests.ts'],
     coverage: {
-      reporter: ["text", "html"],
-      include: ["src/"],
+      reporter: ['text', 'html'],
+      include: ['src/'],
     },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src/"),
+      '@': path.resolve(__dirname, 'src/'),
     },
   },
-});
+})
 ```
 
 基本的には元々の jest のオプションをそのまま踏襲。

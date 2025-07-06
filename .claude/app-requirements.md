@@ -4,7 +4,7 @@
 
 ## ページ構成
 
-- top(`/`)
+- トップページ(`/`)
   - 各ページへの導線
   - 各種外部リンク
     - x
@@ -13,15 +13,16 @@
     - zenn
     - qiita
     - wantedly
-- memo（`/memo`）
+- メモ一覧ページ（`/memo`）
   - `/memo/page/x`でページネーション
-  - tags(`/memo/tags`): タグ一覧
-  - tag ページ（`/memo/tags/xxx`）:タグの記事一覧
-    - `/memo/tags/xxx/page/1`でページネーション
-- carrer(`/career`)
+- メモ詳細ページ（`/memo/{{memoId}}`）
+- タグ一覧(`/memo/tags`)
+- タグのメモ一覧ページ（`/memo/tags/xxx`）
+  - `/memo/tags/xxx/page/1`でページネーション
+- キャリアページ(`/career`)
   - キャリア遍歴を時系列でいい感じに表示する
   - PDF 出力もできる（local 専用, md-to-pdf）
-- portfolio(`/portfolio`)
+- ポートフォリオページ(`/portfolio`)
   - solo-development（個人開発）
   - slides（発表資料）
 
