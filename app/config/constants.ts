@@ -7,7 +7,7 @@ export const PAGE_DESCRIPTIONS = {
 
 // Pagination settings
 export const PAGINATION = {
-  POSTS_PER_PAGE: 6,
+  POSTS_PER_PAGE: 12,
   ANIMATION_DELAY_MS: 100,
 } as const;
 

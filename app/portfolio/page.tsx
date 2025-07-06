@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import AnimatedBackground from '@/app/_components/AnimatedBackground';
 import PageHeader from '@/app/_components/PageHeader';
-import AnimatedBackground from './components/AnimatedBackground';
 import FilterButtons from './components/FilterButtons';
 import PortfolioCard from './components/PortfolioCard';
 import PortfolioModal from './components/PortfolioModal';
@@ -36,7 +36,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="relative min-h-screen">
-      <AnimatedBackground />
+      <AnimatedBackground variant="pulse" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <PageHeader title="Portfolio" description={PORTFOLIO_PAGE_DESCRIPTION} />

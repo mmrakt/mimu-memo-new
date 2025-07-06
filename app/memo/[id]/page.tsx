@@ -6,9 +6,9 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
+import AnimatedBackground from '@/app/_components/AnimatedBackground';
 import { getTagIconPath } from '@/app/memo/components/utils';
 import { getAllMemoSlugs, getMemoBySlug } from '@/app/memo/utils';
-import AnimatedBackground from '../components/AnimatedBackground';
 import styles from './markdown.module.css';
 
 interface MemoDetailPageProps {

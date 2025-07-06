@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import AnimatedBackground from '../components/AnimatedBackground';
+import AnimatedBackground from '@/app/_components/AnimatedBackground';
 
 export default function NotFound() {
   return (

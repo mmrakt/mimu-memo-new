@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:clean": "tsx scripts/dev-watcher.ts",
     "build": "next build",
     "start": "next start",
     "tc": "tsgo",
@@ -36,9 +37,11 @@
     "@typescript/native-preview": "^7.0.0-dev.20250702.1",
     "@vitejs/plugin-react": "^4.6.0",
     "@vitest/ui": "^3.2.4",
+    "chokidar": "^4.0.3",
     "jsdom": "^26.1.0",
     "jsonc-parser": "^3.3.1",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "typescript": "^5",
     "vitest": "^3.2.4"
   }
