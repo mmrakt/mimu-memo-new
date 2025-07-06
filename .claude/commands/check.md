@@ -1,4 +1,4 @@
-check lint and type-check, unit-test errors, and fix them.
+Check lint and type-check, unit-test errors, and fix them.
 
 ```sh
 // check
