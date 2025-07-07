@@ -1,30 +1,30 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
-import './globals.css';
-import 'highlight.js/styles/github-dark.css';
-import { ABOUT_SITE, MY_NAME, SITE_NAME } from '@/app/config';
-import Footer from './_components/Footer';
-import Navigation from './_components/Navigation';
+import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import "highlight.js/styles/github-dark.css";
+import { ABOUT_SITE, MY_NAME, SITE_NAME } from "@/config";
+import Footer from "./_components/Footer";
+import Navigation from "./_components/Navigation";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} | ${MY_NAME}'s personal site`,
-  description: `${ABOUT_SITE.join(' ')}`,
+  description: `${ABOUT_SITE.join(" ")}`,
   openGraph: {
     title: `${SITE_NAME} | ${MY_NAME}'s personal site`,
-    description: `${ABOUT_SITE.join(' ')}`,
+    description: `${ABOUT_SITE.join(" ")}`,
     images: [
       {
-        url: '/ogp/thumbnail.png',
+        url: "/ogp/thumbnail.png",
         width: 1200,
         height: 630,
       },

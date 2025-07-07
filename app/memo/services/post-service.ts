@@ -1,15 +1,16 @@
-import { promises as fs } from 'node:fs';
-import matter from 'gray-matter';
-import { FILE_EXTENSIONS } from '@/app/config/constants';
-import { formatPubDate, sortPostsByDate } from '../lib/date-utils';
+import { promises as fs } from "node:fs";
+import matter from "gray-matter";
+import { FILE_EXTENSIONS } from "@/config/constants";
+import { formatPubDate, sortPostsByDate } from "../lib/date-utils";
 import {
   buildPostFilePath,
   getPostsDirectory,
   getSlugFromFilename,
   isPostFile,
   parseMdFile,
-} from '../lib/file-utils';
-import type { MemoBySlugResult, PostListItem } from '../lib/types';
+} from "../lib/file-utils";
+import type { MemoBySlugResult, PostListItem } from "../lib/types";
+import { validateTag } from "./tag-service";
 
 export async function getAllPosts(): Promise<PostListItem[]> {
   try {
@@ -32,7 +33,7 @@ export async function getAllPosts(): Promise<PostListItem[]> {
 
     return sortPostsByDate(posts);
   } catch (error) {
-    console.error('Error reading posts directory:', error);
+    console.error("Error reading posts directory:", error);
     return [];
   }
 }
@@ -41,18 +42,18 @@ async function processMarkdownFile(
   filename: string,
   slug: string,
   postsDirectory: string,
-  posts: PostListItem[],
+  posts: PostListItem[]
 ): Promise<void> {
   const filePath = `${postsDirectory}/${filename}`;
-  const fileContent = await fs.readFile(filePath, 'utf-8');
+  const fileContent = await fs.readFile(filePath, "utf-8");
   const { data } = matter(fileContent);
 
   posts.push({
     id: slug,
-    title: data.title || '',
-    tag: data.tag || '',
+    title: data.title || "",
+    tag: validateTag(data.tag || "", filePath),
     pubDate: formatPubDate(data.pubDate),
-    excerpt: data.excerpt || data.description || '',
+    excerpt: data.excerpt || data.description || "",
   });
 }
 
@@ -60,26 +61,28 @@ async function processMdxFile(
   filename: string,
   slug: string,
   postsDirectory: string,
-  posts: PostListItem[],
+  posts: PostListItem[]
 ): Promise<void> {
   const filePath = `${postsDirectory}/${filename}`;
   try {
-    const fileContent = await fs.readFile(filePath, 'utf-8');
+    const fileContent = await fs.readFile(filePath, "utf-8");
     const { data } = matter(fileContent);
 
     posts.push({
       id: slug,
-      title: data.title || '',
-      tag: data.tag || '',
+      title: data.title || "",
+      tag: validateTag(data.tag || "", filePath),
       pubDate: formatPubDate(data.pubDate),
-      excerpt: data.excerpt || data.description || '',
+      excerpt: data.excerpt || data.description || "",
     });
   } catch (error) {
     console.error(`Error loading MDX file ${filename}:`, error);
   }
 }
 
-export async function getMemoBySlug(slug: string): Promise<MemoBySlugResult | null> {
+export async function getMemoBySlug(
+  slug: string
+): Promise<MemoBySlugResult | null> {
   try {
     // Try .md file first
     const mdFilePath = buildPostFilePath(slug, FILE_EXTENSIONS.MARKDOWN);
@@ -98,13 +101,13 @@ export async function getMemoBySlug(slug: string): Promise<MemoBySlugResult | nu
     await fs.access(mdxFilePath);
 
     // Read MDX file as text and parse frontmatter, then use ReactMarkdown for rendering
-    const fileContent = await fs.readFile(mdxFilePath, 'utf-8');
+    const fileContent = await fs.readFile(mdxFilePath, "utf-8");
     const { data, content } = matter(fileContent);
 
     return {
       metadata: {
-        title: data.title || '',
-        tag: data.tag || '',
+        title: data.title || "",
+        tag: validateTag(data.tag || "", mdxFilePath),
         pubDate: formatPubDate(data.pubDate),
         id: slug,
       },
@@ -124,7 +127,7 @@ export async function getAllMemoSlugs(): Promise<string[]> {
 
     return filenames.filter(isPostFile).map(getSlugFromFilename);
   } catch (error) {
-    console.error('Error reading posts directory:', error);
+    console.error("Error reading posts directory:", error);
     return [];
   }
 }

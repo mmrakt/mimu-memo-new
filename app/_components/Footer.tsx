@@ -1,5 +1,5 @@
-import { ABOUT_ME, MY_NAME } from '@/app/config';
-import SocialLinks from './SocialLinks';
+import { ABOUT_ME, MY_NAME } from "@/config";
+import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
   return (
@@ -11,14 +11,18 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent">
               About
             </h3>
-            <p className="text-slate-400 leading-relaxed mb-6">{ABOUT_ME.join(' ')}</p>
+            <p className="text-slate-400 leading-relaxed mb-6">
+              {ABOUT_ME.join(" ")}
+            </p>
             <SocialLinks />
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="text-center pt-8 border-t border-indigo-500/10">
-          <p className="text-slate-400 text-sm">&copy; 2025 {MY_NAME}. All rights reserved.</p>
+          <p className="text-slate-400 text-sm">
+            &copy; 2025 {MY_NAME}. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

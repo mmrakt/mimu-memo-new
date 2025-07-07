@@ -1,10 +1,10 @@
-import { notFound } from 'next/navigation';
-import AnimatedBackground from '@/app/_components/AnimatedBackground';
-import PageHeader from '@/app/_components/PageHeader';
-import { PAGINATION } from '@/app/config/constants';
-import MemoListWithPagination from '../../components/MemoListWithPagination';
-import { MEMO_PAGE_DESCRIPTION } from '../../data';
-import { getAllPosts } from '../../utils';
+import { notFound } from "next/navigation";
+import AnimatedBackground from "@/_components/AnimatedBackground";
+import PageHeader from "@/_components/PageHeader";
+import { PAGINATION } from "@/config/constants";
+import MemoListWithPagination from "../../components/MemoListWithPagination";
+import { MEMO_PAGE_DESCRIPTION } from "../../data";
+import { getAllPosts } from "../../utils";
 
 interface MemoPageProps {
   params: Promise<{
@@ -21,7 +21,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function MemoPageWithPagination({ params }: MemoPageProps) {
+export default async function MemoPageWithPagination({
+  params,
+}: MemoPageProps) {
   const { page } = await params;
   const currentPage = parseInt(page, 10);
 

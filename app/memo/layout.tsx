@@ -1,16 +1,20 @@
-import type { Metadata } from 'next';
-import { MEMO_PAGE_DESCRIPTION } from '@/app/memo/data';
+import type { Metadata } from "next";
+import { MEMO_PAGE_DESCRIPTION } from "@/memo/data";
 
 export const metadata: Metadata = {
-  title: 'Memo | mimu-memo',
+  title: "Memo | mimu-memo",
   description: MEMO_PAGE_DESCRIPTION,
   openGraph: {
-    title: 'Memo | mimu-memo',
+    title: "Memo | mimu-memo",
     description: MEMO_PAGE_DESCRIPTION,
-    type: 'website',
+    type: "website",
   },
 };
 
-export default function MemoLayout({ children }: { children: React.ReactNode }) {
+export default function MemoLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

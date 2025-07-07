@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import AnimatedBackground from '@/app/_components/AnimatedBackground';
-import MemoListWithPagination from '../../components/MemoListWithPagination';
-import { getTagIconPath } from '../../components/utils';
-import { getAllTags, getPostsByTagPaginated } from '../../services/tag-service';
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import AnimatedBackground from "@/_components/AnimatedBackground";
+import MemoListWithPagination from "../../components/MemoListWithPagination";
+import { getTagIconPath } from "../../components/utils";
+import { getAllTags, getPostsByTagPaginated } from "../../services/tag-service";
 
 interface PageProps {
   params: Promise<{
@@ -22,10 +22,8 @@ export async function generateStaticParams() {
 export default async function TagPage({ params }: PageProps) {
   const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
-  const { posts, currentPage, totalPages, totalPosts } = await getPostsByTagPaginated(
-    decodedTag,
-    1,
-  );
+  const { posts, currentPage, totalPages, totalPosts } =
+    await getPostsByTagPaginated(decodedTag, 1);
 
   if (totalPosts === 0) {
     notFound();
@@ -54,8 +52,12 @@ export default async function TagPage({ params }: PageProps) {
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{decodedTag}</h1>
-              <p className="text-gray-600 dark:text-gray-400">{totalPosts} 件の記事</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                {decodedTag}
+              </h1>
+              <p className="text-gray-600 dark:text-gray-400">
+                {totalPosts} 件の記事
+              </p>
             </div>
           </div>
         </div>
