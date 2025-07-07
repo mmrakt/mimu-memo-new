@@ -4,22 +4,22 @@ import { getTagIconPath } from '../utils';
 describe('Component Utils', () => {
   describe('getTagIconPath', () => {
     it('should return correct icon path for supported tags', () => {
-      expect(getTagIconPath('react')).toBe('/images/react.svg');
-      expect(getTagIconPath('typescript')).toBe('/images/typescript.svg');
-      expect(getTagIconPath('nextjs')).toBe('/images/nextjs.svg');
-      expect(getTagIconPath('astro')).toBe('/images/astro.svg');
+      expect(getTagIconPath('react')).toBe('/tagIcon/react.svg');
+      expect(getTagIconPath('typescript')).toBe('/tagIcon/typescript.svg');
+      expect(getTagIconPath('nextjs')).toBe('/tagIcon/nextjs.svg');
+      expect(getTagIconPath('astro')).toBe('/tagIcon/astro.svg');
     });
 
     it('should handle case insensitive tags', () => {
-      expect(getTagIconPath('REACT')).toBe('/images/react.svg');
-      expect(getTagIconPath('React')).toBe('/images/react.svg');
-      expect(getTagIconPath('rEaCt')).toBe('/images/react.svg');
+      expect(getTagIconPath('REACT')).toBe('/tagIcon/react.svg');
+      expect(getTagIconPath('React')).toBe('/tagIcon/react.svg');
+      expect(getTagIconPath('rEaCt')).toBe('/tagIcon/react.svg');
     });
 
-    it('should return favicon for unsupported tags', () => {
-      expect(getTagIconPath('unknown')).toBe('/images/favicon.png');
-      expect(getTagIconPath('random-tag')).toBe('/images/favicon.png');
-      expect(getTagIconPath('')).toBe('/images/favicon.png');
+    it('should return other.svg for unsupported tags', () => {
+      expect(getTagIconPath('unknown')).toBe('/tagIcon/other.svg');
+      expect(getTagIconPath('random-tag')).toBe('/tagIcon/other.svg');
+      expect(getTagIconPath('')).toBe('/tagIcon/other.svg');
     });
 
     it('should handle all supported technology tags', () => {
@@ -35,19 +35,22 @@ describe('Component Utils', () => {
         'tailwindcss',
         'astro',
         'gatsby',
+        'other',
       ];
 
       supportedTags.forEach((tag) => {
         const result = getTagIconPath(tag);
-        expect(result).toBe(`/images/${tag}.svg`);
-        expect(result).not.toBe('/images/favicon.png');
+        expect(result).toBe(`/tagIcon/${tag}.svg`);
+        if (tag !== 'other') {
+          expect(result).not.toBe('/tagIcon/other.svg');
+        }
       });
     });
 
     it('should handle special characters and numbers', () => {
-      expect(getTagIconPath('react-18')).toBe('/images/favicon.png');
-      expect(getTagIconPath('vue.js')).toBe('/images/favicon.png');
-      expect(getTagIconPath('node_js')).toBe('/images/favicon.png');
+      expect(getTagIconPath('react-18')).toBe('/tagIcon/other.svg');
+      expect(getTagIconPath('vue.js')).toBe('/tagIcon/other.svg');
+      expect(getTagIconPath('node_js')).toBe('/tagIcon/other.svg');
     });
   });
 });

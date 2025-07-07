@@ -13,8 +13,9 @@ export const PAGINATION = {
 
 // File paths
 export const PATHS = {
-  POSTS_DIRECTORY: 'app/_contents/posts',
+  POSTS_DIRECTORY: 'app/_contents/memo',
   IMAGES_DIRECTORY: '/images',
+  TAG_ICONS_DIRECTORY: '/tagIcon',
   FAVICON: '/images/favicon.png',
 } as const;
 
@@ -31,6 +32,7 @@ export const TAG_ICONS = {
   tailwindcss: 'tailwindcss.svg',
   astro: 'astro.svg',
   gatsby: 'gatsby.svg',
+  other: 'other.svg',
 } as const;
 
 // File extensions
