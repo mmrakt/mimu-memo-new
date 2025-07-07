@@ -46,7 +46,7 @@ export default function PortfolioCard({ item, index, onCardClick }: PortfolioCar
         </div>
       </div>
       <div className="p-6">
-        <div className="text-cyan-400 text-sm font-semibold uppercase tracking-wide mb-2">
+        <div className="text-cyan-400 text-sm font-semibold tracking-wide mb-2">
           {getCategoryName(item.category)}
         </div>
         <h3 className="text-xl font-bold text-slate-50 mb-3">{item.title}</h3>

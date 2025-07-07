@@ -3,7 +3,8 @@ title: "hack-timer"
 description: "ポモドーロテクニック用のChrome拡張"
 url: "https://chrome.google.com/webstore/detail/hack-timer/pcnppkgggfifkggfbikfacnheemmlbfa/related"
 github: "https://github.com/mmrakt/hack-timer"
-# image: "/portfolio/hack-timer-screenshot.png" # Note: Image not available due to Notion URL restrictions
+developmentPeriod: "2022.11 - 2023.11"
+image: "hack-timer.png"
 tags: ["React", "TypeScript", "Tailwind CSS", "Vite"]
 ---
 

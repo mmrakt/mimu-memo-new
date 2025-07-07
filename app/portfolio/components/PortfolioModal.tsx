@@ -1,7 +1,11 @@
 import { ExternalLink, X } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
 import type { PortfolioItem } from '../types';
+import styles from './markdown.module.css';
 
 interface PortfolioModalProps {
   item: PortfolioItem | null;
@@ -59,18 +63,28 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
           <X className="w-6 h-6 text-white" />
         </button>
 
-        <Image
-          src={item.image}
-          alt={item.title}
-          width={800}
-          height={320}
-          className="w-full h-80 object-cover"
-        />
+        <div className="relative w-full">
+          <Image
+            src={item.image}
+            alt={item.title}
+            width={800}
+            height={600}
+            className="w-full h-auto"
+            sizes="(max-width: 896px) 100vw, 896px"
+            priority
+          />
+        </div>
 
         <div className="p-8">
-          <h2 id="modal-title" className="text-3xl font-bold text-slate-50 mb-6">
+          <h2 id="modal-title" className="text-3xl font-bold text-slate-50 mb-4">
             {item.title}
           </h2>
+
+          {item.developmentPeriod && (
+            <p className="text-slate-400 mb-6 text-sm">
+              Development Period: {item.developmentPeriod}
+            </p>
+          )}
 
           <div className="flex flex-wrap gap-2 mb-6">
             {item.tech.map((tech) => (
@@ -83,7 +97,11 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
             ))}
           </div>
 
-          <p className="text-slate-300 leading-relaxed mb-8 text-lg">{item.fullDescription}</p>
+          <div className={`${styles.markdown} mb-8`}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+              {item.fullDescription}
+            </ReactMarkdown>
+          </div>
 
           <div className="flex gap-4">
             <a

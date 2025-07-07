@@ -3,7 +3,8 @@ title: "ChatGPT Clone"
 description: "ChatGPTのクローンアプリ"
 url: "https://clone-chatgpt-app.vercel.app/"
 github: "https://github.com/mmrakt/chat-gpt-clone"
-# image: "/portfolio/chatgpt-clone-demo.gif" # Note: Image not available due to Notion URL restrictions
+developmentPeriod: "2023.08 - 2023.11"
+image: "chatgpt-clone.gif"
 tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Auth.js"]
 ---
 

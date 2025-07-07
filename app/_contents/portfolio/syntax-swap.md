@@ -3,7 +3,8 @@ title: "Syntax Swap"
 description: "コードブロックのシンタックスハイライトを上書きするChrome拡張"
 url: "https://chrome.google.com/webstore/detail/syntax-swap/amfgpgpncobmcpnleadbkdofcclhmngc"
 github: "https://github.com/mmrakt/syntax-swap"
-# image: "/portfolio/syntax-swap-output.gif" # Note: Image not available due to Notion URL restrictions
+developmentPeriod: "2023.10 - 2023.10"
+image: "syntax-swap.gif"
 tags: ["React", "TypeScript", "Vite", "TailwindCSS"]
 ---
 

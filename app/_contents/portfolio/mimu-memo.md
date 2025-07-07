@@ -3,6 +3,7 @@ title: "mimu-memo - 平凡エンジニアの個人学習メモ"
 description: "個人用のブログサイト"
 url: "https://mimu-memo.com/page/1"
 github: "https://github.com/mmrakt/mimu-memo"
+developmentPeriod: "2024.01 - 2024.04"
 # image: "/portfolio/mimu-memo.gif" # Note: Image not available due to Notion URL restrictions
 tags: ["Astro", "React", "TypeScript", "Sass"]
 ---

@@ -3,7 +3,8 @@ title: "update-chrome-extension-version-action"
 description: "Chrome拡張の更新作業の自動化用のGitHub Actions"
 url: "https://github.com/marketplace/actions/update-chrome-extension-version-action"
 github: "https://github.com/mmrakt/update-chrome-extension-version-action"
-# image: "/portfolio/chrome-extension-action-screenshot1.png" # Note: Image not available due to Notion URL restrictions
+developmentPeriod: "2023.10 - 2023.10"
+image: "update-chrome-extension-version-action.png"
 tags: ["GitHub Actions", "Chrome Extension", "Automation"]
 ---
 

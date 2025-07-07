@@ -8,6 +8,7 @@ export interface PortfolioItem {
   demo: string;
   github: string;
   fullDescription: string;
+  developmentPeriod?: string;
 }
 
 export interface FilterOption {
@@ -15,4 +16,4 @@ export interface FilterOption {
   label: string;
 }
 
-export type CategoryKey = 'web' | 'mobile' | 'ai' | 'design';
+export type CategoryKey = 'solo-development';
