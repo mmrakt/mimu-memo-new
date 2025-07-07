@@ -4,14 +4,19 @@ import Link from 'next/link';
 interface UrlPaginationProps {
   currentPage: number;
   totalPages: number;
+  basePath?: string;
 }
 
-export default function UrlPagination({ currentPage, totalPages }: UrlPaginationProps) {
+export default function UrlPagination({
+  currentPage,
+  totalPages,
+  basePath = '/memo',
+}: UrlPaginationProps) {
   if (totalPages <= 1) {
     return null;
   }
 
-  const getPageUrl = (page: number) => (page === 1 ? '/memo' : `/memo/page/${page}`);
+  const getPageUrl = (page: number) => (page === 1 ? basePath : `${basePath}/page/${page}`);
 
   const getVisiblePages = () => {
     const delta = 2; // Number of pages to show on each side of current page

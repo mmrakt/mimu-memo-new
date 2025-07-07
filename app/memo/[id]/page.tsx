@@ -87,9 +87,12 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
                 <Calendar className="w-5 h-5" />
                 <span>{metadata.pubDate}</span>
               </div>
-              <div className="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full text-sm">
+              <Link
+                href={`/memo/tag/${metadata.tag}`}
+                className="bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full text-sm hover:bg-indigo-500/20 hover:text-indigo-300 transition-colors"
+              >
                 {metadata.tag}
-              </div>
+              </Link>
             </div>
           </header>
 

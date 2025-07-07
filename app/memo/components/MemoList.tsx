@@ -22,9 +22,20 @@ export default function MemoList({ posts }: MemoListProps) {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(posts.length / postsPerPage);
 
+  const getGridColumns = () => {
+    const count = currentPosts.length;
+    if (count <= 2) {
+      return 'grid grid-cols-1 md:grid-cols-2 gap-8 mb-16';
+    } else if (count <= 3) {
+      return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16';
+    } else {
+      return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16';
+    }
+  };
+
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div className={getGridColumns()}>
         {currentPosts.map((post, index) => (
           <Link
             key={post.id}
@@ -50,9 +61,13 @@ export default function MemoList({ posts }: MemoListProps) {
                   <Calendar className="w-4 h-4" />
                   {post.pubDate}
                 </span>
-                <span className="px-3 py-1 bg-cyan-400/10 border border-cyan-400/20 rounded-full text-xs text-cyan-400">
+                <Link
+                  href={`/memo/tag/${post.tag}`}
+                  className="px-3 py-1 bg-cyan-400/10 border border-cyan-400/20 rounded-full text-xs text-cyan-400 hover:bg-cyan-400/20 hover:border-cyan-400/30 transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {post.tag}
-                </span>
+                </Link>
               </div>
               <h2 className="text-xl font-bold mb-3 text-slate-100 group-hover:text-indigo-400 transition-colors">
                 {post.title}
