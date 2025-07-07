@@ -1,6 +1,6 @@
 ---
 title: Next.jsのv12⇨v14へのアップグレード作業
-tag: 'nextjs'
+tag: "nextjs"
 pubDate: 2024/02/27
 ---
 
@@ -73,15 +73,14 @@ Object.defineProperty(nextImage, 'default', {
 })
 ```
 
-下記 issue によると`@storybook/nextjs`の最新版ではデフォルトで`next/image`をサポートしており、上記ハックが不要になった模様。
-https://github.com/storybookjs/storybook/issues/23684#issuecomment-1794357809
+[issue](https://github.com/storybookjs/storybook/issues/23684#issuecomment-1794357809) によると`@storybook/nextjs`の最新版ではデフォルトで`next/image`をサポートしており、上記ハックが不要になった模様。
 
 上記設定を削除しエラーは回避できたが、プレビュー上では画像が表示できていない（404 の）状態。
 
-下記記事を参考に`.storybook/main.js`に`staticDirs: ['../public'],`のオプションを追加。\
-https://stackoverflow.com/questions/77599258/images-loaded-using-next-image-isnt-shown-in-storybook
+[こちらの記事](https://stackoverflow.com/questions/77599258/images-loaded-using-next-image-isnt-shown-in-storybook)を参考に`.storybook/main.js`に`staticDirs: ['../public'],`のオプションを追加。
 
-また同時に storybook CLI のコマンドの`-s`オプションが非推奨になっていたためオプションを削除した。（[公式](https://storybook.js.org/docs/api/cli-options)）
+また同時に storybook CLI のコマンドの`-s`オプションが非推奨になっていたためオプションを削除した。
+（[公式](https://storybook.js.org/docs/api/cli-options)）
 
 これで無事 storybook 上で画像の表示に成功。
 

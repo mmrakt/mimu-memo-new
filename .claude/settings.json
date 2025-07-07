@@ -89,7 +89,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/akitomimura/ghq/github.com/mmrakt/mimu-memo-new/.claude/hooks/use-bun.sh"
+            "command": "~/ghq/github.com/mmrakt/mimu-memo-new/.claude/hooks/use-bun.sh"
           }
         ]
       }
