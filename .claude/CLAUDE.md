@@ -7,6 +7,7 @@
 - If searching web, use `gemini` instead of `Web_Search`(/gemini-search command)
 - Reading before writing to a file
 - Use UTF-8 character code
+- Implement with `TDD`(Test Driven Development) approach
 
 ### File Structure and component design
 
