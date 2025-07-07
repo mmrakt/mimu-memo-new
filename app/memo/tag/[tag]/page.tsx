@@ -41,7 +41,7 @@ export default async function TagPage({ params }: PageProps) {
             href="/memo/tags"
             className="inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:underline mb-4"
           >
-            ← タグ一覧に戻る
+            ← Back to tag list
           </Link>
 
           <div className="flex items-center gap-4">

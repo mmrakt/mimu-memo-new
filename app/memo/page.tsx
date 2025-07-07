@@ -28,7 +28,7 @@ export default async function MemoPage() {
             className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-indigo-400 hover:bg-indigo-500/20 hover:border-indigo-500/30 transition-colors"
           >
             <Tag size={18} />
-            <span>タグ一覧を見る</span>
+            <span>View All Tag</span>
           </Link>
         </div>
 

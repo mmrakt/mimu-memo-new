@@ -3,7 +3,7 @@
 import { ArrowRight, Briefcase, Code, ExternalLink, FileText, Globe, User } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { MY_NAME, SELF_INTRODUCTION } from '@/app/config';
+import { ABOUT_ME, ABOUT_SITE, MY_NAME } from '@/app/config';
 
 const quickNavItems = [
   {
@@ -130,11 +130,11 @@ export default function Home() {
                   style={{ transitionDelay: '300ms' }}
                 >
                   <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-indigo-400 animate-typewriter">
-                    {SELF_INTRODUCTION[0]}
+                    {ABOUT_ME[0]}
                   </span>
                   <br className="hidden md:block" />
                   <span className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-cyan-400 animate-typewriter animation-delay-2000">
-                    {SELF_INTRODUCTION[1]}
+                    {ABOUT_ME[1]}
                   </span>
                 </p>
               </div>
@@ -199,13 +199,11 @@ export default function Home() {
         {/* Site Overview */}
         <section className="py-20 px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-200">
-              このサイトについて
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-200">About this site</h2>
             <p className="text-lg text-slate-400 leading-relaxed mb-12">
-              技術的な学びや経験を共有し、キャリアの軌跡を記録するパーソナルサイトです。
+              {ABOUT_SITE[0]}
               <br className="hidden md:block" />
-              Web開発、フロントエンド・バックエンド技術、そして日々の開発で得た知見を発信しています。
+              {ABOUT_SITE[1]}
             </p>
           </div>
         </section>
@@ -239,7 +237,7 @@ export default function Home() {
                     </h3>
                     <p className="text-slate-400 mb-4">{item.description}</p>
                     <div className="flex items-center text-indigo-400 group-hover:text-cyan-400 transition-colors">
-                      <span className="text-sm font-medium">詳しく見る</span>
+                      <span className="text-sm font-medium">Read more</span>
                       <ArrowRight
                         size={16}
                         className="ml-2 group-hover:translate-x-1 transition-transform"

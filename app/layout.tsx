@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import 'highlight.js/styles/github-dark.css';
+import { ABOUT_SITE, MY_NAME, SITE_NAME } from '@/app/config';
 import Footer from './_components/Footer';
 import Navigation from './_components/Navigation';
 
@@ -16,8 +17,19 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "mimu-memo | mimu's personal site",
-  description: 'フルスタックデベロッパーとして、革新的なデジタルソリューションを提供しています。',
+  title: `${SITE_NAME} | ${MY_NAME}'s personal site`,
+  description: `${ABOUT_SITE.join(' ')}`,
+  openGraph: {
+    title: `${SITE_NAME} | ${MY_NAME}'s personal site`,
+    description: `${ABOUT_SITE.join(' ')}`,
+    images: [
+      {
+        url: '/ogp/thumbnail.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -65,7 +65,7 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
           className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors mb-8"
         >
           <ArrowLeft className="w-5 h-5" />
-          メモ一覧に戻る
+          Back to memo list
         </Link>
 
         <article className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-2xl overflow-hidden">
