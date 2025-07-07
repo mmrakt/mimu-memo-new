@@ -1,5 +1,5 @@
-import type { MEDIA_TYPE_LIST, MEDIA_TYPE_LIST_FOR_DISPLAY } from "@/config";
-import type { TAG_LIST } from "@/memo/services/tag-service";
+import type { MEDIA_TYPE_LIST, MEDIA_TYPE_LIST_FOR_DISPLAY } from '@/config';
+import type { TAG_LIST } from '@/memo/services/tag-service';
 
 export type NavItems = {
   [key: string]: NavItem;

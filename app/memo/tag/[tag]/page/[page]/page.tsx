@@ -1,13 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import AnimatedBackground from "@/_components/AnimatedBackground";
-import MemoListWithPagination from "../../../../components/MemoListWithPagination";
-import { getTagIconPath } from "../../../../components/utils";
-import {
-  getAllTags,
-  getPostsByTagPaginated,
-} from "../../../../services/tag-service";
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import AnimatedBackground from '@/_components/AnimatedBackground';
+import MemoListWithPagination from '../../../../components/MemoListWithPagination';
+import { getTagIconPath } from '../../../../components/utils';
+import { getAllTags, getPostsByTagPaginated } from '../../../../services/tag-service';
 
 interface PageProps {
   params: Promise<{
@@ -42,8 +39,10 @@ export default async function TagPagePaginated({ params }: PageProps) {
     notFound();
   }
 
-  const { posts, currentPage, totalPages, totalPosts } =
-    await getPostsByTagPaginated(decodedTag, pageNumber);
+  const { posts, currentPage, totalPages, totalPosts } = await getPostsByTagPaginated(
+    decodedTag,
+    pageNumber,
+  );
 
   if (totalPosts === 0 || pageNumber > totalPages) {
     notFound();
@@ -72,9 +71,7 @@ export default async function TagPagePaginated({ params }: PageProps) {
               />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                {decodedTag}
-              </h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{decodedTag}</h1>
               <p className="text-gray-600 dark:text-gray-400">
                 {totalPosts} 件の記事 (ページ {currentPage}/{totalPages})
               </p>

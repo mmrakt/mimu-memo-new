@@ -17,6 +17,8 @@ export interface PostListItem {
   tag: string;
   pubDate: string;
   excerpt?: string;
+  media?: 'owned' | 'qiita' | 'zenn' | 'note';
+  link?: string;
 }
 
 export interface MemoBySlugResult {

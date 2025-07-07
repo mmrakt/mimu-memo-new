@@ -1,10 +1,11 @@
-import { notFound } from "next/navigation";
-import AnimatedBackground from "@/_components/AnimatedBackground";
-import PageHeader from "@/_components/PageHeader";
-import { PAGINATION } from "@/config/constants";
-import MemoListWithPagination from "../../components/MemoListWithPagination";
-import { MEMO_PAGE_DESCRIPTION } from "../../data";
-import { getAllPosts } from "../../utils";
+import { notFound } from 'next/navigation';
+import AnimatedBackground from '@/_components/AnimatedBackground';
+import PageHeader from '@/_components/PageHeader';
+import { PAGINATION } from '@/config/constants';
+import MemoListWithPagination from '../../components/MemoListWithPagination';
+import { MEMO_PAGE_DESCRIPTION } from '../../data';
+import { getAllCombinedPosts } from '../../services/combined-posts-service';
+import { getAllPosts } from '../../utils';
 
 interface MemoPageProps {
   params: Promise<{
@@ -13,6 +14,7 @@ interface MemoPageProps {
 }
 
 export async function generateStaticParams() {
+  // Use only internal posts for static generation to avoid build-time external API calls
   const posts = await getAllPosts();
   const totalPages = Math.ceil(posts.length / PAGINATION.POSTS_PER_PAGE);
 
@@ -21,9 +23,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function MemoPageWithPagination({
-  params,
-}: MemoPageProps) {
+export default async function MemoPageWithPagination({ params }: MemoPageProps) {
   const { page } = await params;
   const currentPage = parseInt(page, 10);
 
@@ -31,7 +31,7 @@ export default async function MemoPageWithPagination({
     notFound();
   }
 
-  const posts = await getAllPosts();
+  const posts = await getAllCombinedPosts();
   const totalPages = Math.ceil(posts.length / PAGINATION.POSTS_PER_PAGE);
 
   if (currentPage > totalPages) {

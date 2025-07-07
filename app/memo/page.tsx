@@ -1,14 +1,14 @@
-import { Tag } from "lucide-react";
-import Link from "next/link";
-import AnimatedBackground from "@/_components/AnimatedBackground";
-import PageHeader from "@/_components/PageHeader";
-import { PAGINATION } from "@/config/constants";
-import MemoListWithPagination from "./components/MemoListWithPagination";
-import { MEMO_PAGE_DESCRIPTION } from "./data";
-import { getAllPosts } from "./utils";
+import { Tag } from 'lucide-react';
+import Link from 'next/link';
+import AnimatedBackground from '@/_components/AnimatedBackground';
+import PageHeader from '@/_components/PageHeader';
+import { PAGINATION } from '@/config/constants';
+import MemoListWithPagination from './components/MemoListWithPagination';
+import { MEMO_PAGE_DESCRIPTION } from './data';
+import { getAllCombinedPosts } from './services/combined-posts-service';
 
 export default async function MemoPage() {
-  const posts = await getAllPosts();
+  const posts = await getAllCombinedPosts();
   const totalPages = Math.ceil(posts.length / PAGINATION.POSTS_PER_PAGE);
 
   const startIndex = 0;
@@ -32,11 +32,7 @@ export default async function MemoPage() {
           </Link>
         </div>
 
-        <MemoListWithPagination
-          posts={currentPosts}
-          currentPage={1}
-          totalPages={totalPages}
-        />
+        <MemoListWithPagination posts={currentPosts} currentPage={1} totalPages={totalPages} />
       </div>
     </div>
   );

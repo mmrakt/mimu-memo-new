@@ -1,9 +1,5 @@
-import { describe, expect, it, beforeEach, afterEach } from 'vitest';
-import {
-  TAG_LIST,
-  isValidTag,
-  validateTag,
-} from './tag-service';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { isValidTag, TAG_LIST, validateTag, validateTagSafe } from './tag-service';
 
 describe('Tag Service', () => {
   describe('TAG_LIST', () => {
@@ -77,6 +73,19 @@ describe('Tag Service', () => {
   });
 
   describe('validateTag', () => {
+    let mockProcessExit: any;
+    let mockConsoleError: any;
+
+    beforeEach(() => {
+      mockProcessExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
+      mockConsoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      mockProcessExit.mockRestore();
+      mockConsoleError.mockRestore();
+    });
+
     it('should return valid tags unchanged', () => {
       expect(validateTag('react')).toBe('react');
       expect(validateTag('typescript')).toBe('typescript');
@@ -90,57 +99,85 @@ describe('Tag Service', () => {
       expect(validateTag('tailwindcss')).toBe('tailwindcss');
     });
 
-    it('should throw error for invalid tags', () => {
-      expect(() => validateTag('invalid-tag')).toThrow("Invalid tag 'invalid-tag'. Valid tags: other, astro, react, typescript, javascript, nextjs, vite, css, tailwindcss, gatsby");
+    it('should call process.exit for invalid tags', () => {
+      validateTag('invalid-tag');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
+      expect(mockConsoleError).toHaveBeenCalled();
     });
 
-    it('should throw error for empty tags', () => {
-      expect(() => validateTag('')).toThrow('No tag specified. Valid tags: other, astro, react, typescript, javascript, nextjs, vite, css, tailwindcss, gatsby');
+    it('should call process.exit for empty tags', () => {
+      validateTag('');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
+      expect(mockConsoleError).toHaveBeenCalled();
     });
 
-    it('should include file path in error messages when provided', () => {
-      expect(() => validateTag('invalid-tag', '/path/to/file.md')).toThrow(
-        "[/path/to/file.md] Invalid tag 'invalid-tag'. Valid tags: other, astro, react, typescript, javascript, nextjs, vite, css, tailwindcss, gatsby"
-      );
-
-      expect(() => validateTag('', '/path/to/file.md')).toThrow(
-        '[/path/to/file.md] No tag specified. Valid tags: other, astro, react, typescript, javascript, nextjs, vite, css, tailwindcss, gatsby'
-      );
+    it('should log error messages with file path when provided', () => {
+      validateTag('invalid-tag', '/path/to/file.md');
+      expect(mockConsoleError).toHaveBeenCalled();
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
     });
 
-    it('should throw error for null and undefined inputs', () => {
-      expect(() => validateTag(null as any)).toThrow('No tag specified. Valid tags:');
-      expect(() => validateTag(undefined as any)).toThrow('No tag specified. Valid tags:');
+    it('should call process.exit for null and undefined inputs', () => {
+      validateTag(null as any);
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
+
+      validateTag(undefined as any);
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
     });
 
-    it('should throw error for whitespace-only tags', () => {
-      expect(() => validateTag('   ')).toThrow('No tag specified. Valid tags:');
-      expect(() => validateTag('\t')).toThrow('No tag specified. Valid tags:');
-      expect(() => validateTag('\n')).toThrow('No tag specified. Valid tags:');
+    it('should call process.exit for whitespace-only tags', () => {
+      validateTag('   ');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
+
+      validateTag('\t');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
     });
 
-    it('should throw error for case-sensitive invalid tags', () => {
-      expect(() => validateTag('React')).toThrow("Invalid tag 'React'. Valid tags:");
-      expect(() => validateTag('TYPESCRIPT')).toThrow("Invalid tag 'TYPESCRIPT'. Valid tags:");
+    it('should call process.exit for case-sensitive invalid tags', () => {
+      validateTag('React');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
+
+      validateTag('TYPESCRIPT');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
     });
 
-    it('should include all valid tags in error message', () => {
-      expect(() => validateTag('invalid-tag')).toThrow(
-        'other, astro, react, typescript, javascript, nextjs, vite, css, tailwindcss, gatsby'
-      );
+    it('should call process.exit for tags with whitespace', () => {
+      validateTag('  react  ');
+      expect(mockProcessExit).toHaveBeenCalledWith(1);
+    });
+  });
+
+  describe('validateTagSafe', () => {
+    it('should return valid tags unchanged', () => {
+      expect(validateTagSafe('react')).toBe('react');
+      expect(validateTagSafe('typescript')).toBe('typescript');
+      expect(validateTagSafe('javascript')).toBe('javascript');
+      expect(validateTagSafe('other')).toBe('other');
     });
 
-    it('should throw error for tags with whitespace', () => {
-      expect(() => validateTag('  react  ')).toThrow("Invalid tag '  react  '. Valid tags:");
+    it('should return fallback for invalid tags', () => {
+      expect(validateTagSafe('invalid-tag')).toBe('other');
+      expect(validateTagSafe('python')).toBe('other');
+      expect(validateTagSafe('React')).toBe('other');
     });
 
-    it('should throw custom Error instances', () => {
-      try {
-        validateTag('invalid-tag');
-      } catch (error) {
-        expect(error).toBeInstanceOf(Error);
-        expect(error.message).toContain("Invalid tag 'invalid-tag'");
-      }
+    it('should return fallback for empty or falsy values', () => {
+      expect(validateTagSafe('')).toBe('other');
+      expect(validateTagSafe('   ')).toBe('other');
+      expect(validateTagSafe(null as any)).toBe('other');
+      expect(validateTagSafe(undefined as any)).toBe('other');
+    });
+
+    it('should use custom fallback when provided', () => {
+      expect(validateTagSafe('invalid-tag', 'react')).toBe('react');
+      expect(validateTagSafe('', 'typescript')).toBe('typescript');
+      expect(validateTagSafe('Python', 'javascript')).toBe('javascript');
+    });
+
+    it('should return fallback for whitespace-only tags', () => {
+      expect(validateTagSafe('   ')).toBe('other');
+      expect(validateTagSafe('\t')).toBe('other');
+      expect(validateTagSafe('\n')).toBe('other');
     });
   });
 });

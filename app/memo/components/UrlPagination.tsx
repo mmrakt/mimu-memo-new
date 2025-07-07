@@ -59,12 +59,12 @@ export default function UrlPagination({
           className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 hover:text-indigo-400 transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
-          前へ
+          Prev
         </Link>
       ) : (
         <span className="flex items-center gap-1 px-3 py-2 text-sm text-slate-600 cursor-not-allowed">
           <ChevronLeft className="w-4 h-4" />
-          前へ
+          Prev
         </span>
       )}
 
@@ -109,12 +109,12 @@ export default function UrlPagination({
           href={getPageUrl(currentPage + 1)}
           className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 hover:text-indigo-400 transition-colors"
         >
-          次へ
+          Next
           <ChevronRight className="w-4 h-4" />
         </Link>
       ) : (
         <span className="flex items-center gap-1 px-3 py-2 text-sm text-slate-600 cursor-not-allowed">
-          次へ
+          Next
           <ChevronRight className="w-4 h-4" />
         </span>
       )}
