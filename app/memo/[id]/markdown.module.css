@@ -78,7 +78,8 @@
   padding: 0;
   border-radius: 0;
   font-size: 0.875rem;
-  color: #e2e8f0;
+  /* Remove fixed color to allow syntax highlighting */
+  /* color: #e2e8f0; */
 }
 
 .markdown ul,
@@ -144,7 +145,8 @@
   border-radius: 0.5rem;
 }
 
-/* Syntax highlighting styles */
+/* Syntax highlighting styles - commented out to use highlight.js theme */
+/* 
 .markdown .hljs {
   background: transparent;
   color: #e2e8f0;
@@ -194,3 +196,4 @@
 .markdown .hljs-title {
   color: #60a5fa;
 }
+*/

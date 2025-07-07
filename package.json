@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "dev:clean": "tsx scripts/dev-watcher.ts",
+    "dev:watch": "bun scripts/dev-watcher.ts",
     "build": "next build",
     "start": "next start",
     "tc": "tsgo",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
     "lucide-react": "^0.525.0",
     "next": "15.3.4",
     "react": "^19.0.0",
@@ -41,7 +42,6 @@
     "jsdom": "^26.1.0",
     "jsonc-parser": "^3.3.1",
     "tailwindcss": "^4",
-    "tsx": "^4.20.3",
     "typescript": "^5",
     "vitest": "^3.2.4"
   }
