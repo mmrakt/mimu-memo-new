@@ -1,7 +1,7 @@
 import { PAGINATION, TAG_ICONS } from '@/config/constants';
 import { handleCriticalError, ValidationError } from '../lib/error-handler';
 import type { PostListItem } from '../lib/types';
-import { getAllPosts } from './post-service';
+import { getAllCombinedPosts } from './combined-posts-service';
 
 export interface TagInfo {
   name: string;
@@ -27,6 +27,8 @@ export const TAG_LIST = [
   'css',
   'tailwindcss',
   'gatsby',
+  'npm',
+  'typescript',
 ] as const;
 
 export function isValidTag(tag: string): boolean {
@@ -72,7 +74,7 @@ export function validateTagSafe(tag: string, fallback: string = 'other'): string
 }
 
 export async function getAllTags(): Promise<TagInfo[]> {
-  const posts = await getAllPosts();
+  const posts = await getAllCombinedPosts();
 
   const tagCounts = new Map<string, number>();
 
@@ -93,7 +95,7 @@ export async function getAllTags(): Promise<TagInfo[]> {
 }
 
 export async function getPostsByTag(tag: string) {
-  const posts = await getAllPosts();
+  const posts = await getAllCombinedPosts();
   return posts.filter((post) => post.tag === tag);
 }
 
