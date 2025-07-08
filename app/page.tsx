@@ -35,7 +35,7 @@ const quickNavItems = [
   {
     href: '/portfolio',
     title: 'Portfolio',
-    description: 'プロジェクトと成果物',
+    description: '個人開発などの成果物',
     icon: Code,
     color: 'from-indigo-500 to-cyan-500',
   },
