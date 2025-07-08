@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { isValidTag, TAG_LIST, validateTag, validateTagSafe } from '@/memo/services/tag-service';
 
 describe('Tag Service', () => {
@@ -73,8 +73,8 @@ describe('Tag Service', () => {
   });
 
   describe('validateTag', () => {
-    let mockProcessExit: any;
-    let mockConsoleError: any;
+    let mockProcessExit: MockInstance;
+    let mockConsoleError: MockInstance;
 
     beforeEach(() => {
       mockProcessExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);

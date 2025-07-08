@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
 import AnimatedBackground from '@/_components/AnimatedBackground';
 import PageHeader from '@/_components/PageHeader';
 import FilterButtons from '@/portfolio/components/FilterButtons';
@@ -15,28 +16,51 @@ interface PortfolioClientProps {
 }
 
 export default function PortfolioClient({ portfolioItems, pageDescription }: PortfolioClientProps) {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
-  const [filteredItems, setFilteredItems] = useState<PortfolioItem[]>(portfolioItems);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  useEffect(() => {
-    const filtered =
-      activeFilter === 'all'
-        ? portfolioItems
-        : portfolioItems.filter((item) => item.category === activeFilter);
-    setFilteredItems(filtered);
+  // Get URL state
+  const activeFilter = searchParams.get('category') || 'all';
+  const selectedItemId = searchParams.get('item');
+
+  // Compute filtered items with useMemo instead of useState + useEffect
+  const filteredItems = useMemo(() => {
+    return activeFilter === 'all'
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeFilter);
   }, [activeFilter, portfolioItems]);
 
+  // Get selected item from URL parameter
+  const selectedItem = useMemo(() => {
+    if (!selectedItemId) return null;
+    const numericId = Number(selectedItemId);
+    return portfolioItems.find((item) => item.id === numericId) || null;
+  }, [selectedItemId, portfolioItems]);
+
   const handleCardClick = (item: PortfolioItem) => {
-    setSelectedItem(item);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('item', item.id.toString());
+    router.push(`/portfolio?${params.toString()}`, { scroll: false });
   };
 
   const handleModalClose = () => {
-    setSelectedItem(null);
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('item');
+    const newUrl = params.toString() ? `/portfolio?${params.toString()}` : '/portfolio';
+    router.push(newUrl, { scroll: false });
   };
 
   const handleFilterChange = (filterKey: string) => {
-    setActiveFilter(filterKey);
+    const params = new URLSearchParams(searchParams.toString());
+    if (filterKey === 'all') {
+      params.delete('category');
+    } else {
+      params.set('category', filterKey);
+    }
+    // Clear item selection when changing filter
+    params.delete('item');
+    const newUrl = params.toString() ? `/portfolio?${params.toString()}` : '/portfolio';
+    router.push(newUrl, { scroll: false });
   };
 
   return (

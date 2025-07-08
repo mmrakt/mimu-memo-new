@@ -41,6 +41,35 @@ body {
   line-height: 1.6;
 }
 
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable complex transformations but keep opacity changes */
+  .animate-orbit,
+  .animate-spiral,
+  .animate-morphing,
+  .animate-magnetic,
+  .animate-glitch,
+  .animate-gradient-x {
+    animation: none !important;
+  }
+
+  /* Keep essential animations but make them instant */
+  .animate-bounce,
+  .animate-pulse,
+  .animate-pulse-slow {
+    animation-duration: 0.01ms !important;
+  }
+}
+
 /* Custom animation keyframes */
 @keyframes slide-in-from-left {
   from {
