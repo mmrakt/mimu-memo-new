@@ -14,7 +14,8 @@ interface MemoCardProps {
 }
 
 export default function MemoCard({ post, index }: MemoCardProps) {
-  const isExternal = post.media && isExternalMedia(post.media);
+  const isExternal = (post.media && isExternalMedia(post.media)) || !!post.link;
+  const isSlide = post.link && post.media === 'owned';
   const href = isExternal && post.link ? post.link : `/memo/${post.id}`;
   const LinkComponent = isExternal ? 'a' : Link;
   const linkProps = isExternal
@@ -60,11 +61,17 @@ export default function MemoCard({ post, index }: MemoCardProps) {
               {post.tag}
             </Link>
           )}
-          {post.media && isExternalMedia(post.media) && (
+          {((post.media && isExternalMedia(post.media)) || isSlide) && (
             <span
-              className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs ${getMediaStyles(post.media)}`}
+              className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs ${
+                isSlide
+                  ? 'bg-amber-400/10 border border-amber-400/20 text-amber-400'
+                  : post.media
+                    ? getMediaStyles(post.media)
+                    : ''
+              }`}
             >
-              {getMediaDisplayName(post.media)}
+              {isSlide ? 'Slide' : post.media ? getMediaDisplayName(post.media) : ''}
               {isExternal && <ExternalLink className="w-3 h-3" />}
             </span>
           )}

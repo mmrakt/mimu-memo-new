@@ -11,7 +11,7 @@ export const UI_CONSTANTS = {
     CLASSES: {
       SMALL: 'grid grid-cols-1 md:grid-cols-2 gap-8 mb-16',
       MEDIUM: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16',
-      LARGE: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16',
+      LARGE: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16',
     },
   },
   ANIMATION: {
