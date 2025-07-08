@@ -33,6 +33,30 @@ export type PaginatedPost = {
 export type MediaType = (typeof MEDIA_TYPE_LIST)[number];
 export type MediaTypeForDisplay = (typeof MEDIA_TYPE_LIST_FOR_DISPLAY)[number];
 
+export type QiitaTag = {
+  name: string;
+  versions: string[];
+};
+
+export type QiitaUser = {
+  description: string;
+  facebook_id: string;
+  followees_count: number;
+  followers_count: number;
+  github_login_name: string;
+  id: string;
+  items_count: number;
+  linkedin_id: string;
+  location: string;
+  name: string;
+  organization: string;
+  permanent_id: number;
+  profile_image_url: string;
+  team_only: boolean;
+  twitter_screen_name: string;
+  website_url: string;
+};
+
 export type QiitaPost = {
   rendered_body: string;
   body: string;
@@ -45,11 +69,11 @@ export type QiitaPost = {
   private: boolean;
   reactions_count: number;
   stocks_count: number;
-  tags?: any;
+  tags?: QiitaTag[];
   title: string;
   updated_at: string;
   url: string;
-  user: any;
+  user: QiitaUser;
   page_views_count: number;
   team_membership?: null;
   organization_url_name?: null;

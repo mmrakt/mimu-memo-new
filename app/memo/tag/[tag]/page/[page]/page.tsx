@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import AnimatedBackground from '@/_components/AnimatedBackground';
-import MemoListWithPagination from '../../../../components/MemoListWithPagination';
-import { getTagIconPath } from '../../../../components/utils';
-import { getAllTags, getPostsByTagPaginated } from '../../../../services/tag-service';
+import MemoListWithPagination from '@/memo/components/MemoListWithPagination';
+import { getTagIconPath } from '@/memo/components/utils';
+import { getAllTags, getPostsByTagPaginated } from '@/memo/services/tag-service';
 
 interface PageProps {
   params: Promise<{

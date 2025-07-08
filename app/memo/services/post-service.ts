@@ -1,17 +1,17 @@
 import { promises as fs } from 'node:fs';
 import matter from 'gray-matter';
 import { FILE_EXTENSIONS } from '@/config/constants';
-import { formatPubDate, sortPostsByDate } from '../lib/date-utils';
-import { safeAsync } from '../lib/error-handler';
+import { formatPubDate, sortPostsByDate } from '@/memo/lib/date-utils';
+import { safeAsync } from '@/memo/lib/error-handler';
 import {
   buildPostFilePath,
   getPostsDirectory,
   getSlugFromFilename,
   isPostFile,
   parseMdFile,
-} from '../lib/file-utils';
-import type { MemoBySlugResult, PostListItem } from '../lib/types';
-import { validateTag } from './tag-service';
+} from '@/memo/lib/file-utils';
+import type { MemoBySlugResult, PostListItem } from '@/memo/lib/types';
+import { validateTag } from '@/memo/services/tag-service';
 
 export async function getAllPosts(): Promise<PostListItem[]> {
   try {

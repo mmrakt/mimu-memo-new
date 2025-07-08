@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import { getCategoryName } from '../data';
-import type { PortfolioItem } from '../types';
+import { getCategoryName } from '@/portfolio/data';
+import type { PortfolioItem } from '@/portfolio/types';
 
 interface PortfolioCardProps {
   item: PortfolioItem;

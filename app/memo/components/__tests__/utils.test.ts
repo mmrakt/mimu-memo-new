@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getTagIconPath } from '../utils';
+import { getTagIconPath } from '@/memo/components/utils';
 
 describe('Component Utils', () => {
   describe('getTagIconPath', () => {

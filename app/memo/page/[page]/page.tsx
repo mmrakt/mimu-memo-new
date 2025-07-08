@@ -2,10 +2,10 @@ import { notFound } from 'next/navigation';
 import AnimatedBackground from '@/_components/AnimatedBackground';
 import PageHeader from '@/_components/PageHeader';
 import { PAGINATION } from '@/config/constants';
-import MemoListWithPagination from '../../components/MemoListWithPagination';
-import { MEMO_PAGE_DESCRIPTION } from '../../data';
-import { getAllCombinedPosts } from '../../services/combined-posts-service';
-import { getAllPosts } from '../../utils';
+import MemoListWithPagination from '@/memo/components/MemoListWithPagination';
+import { MEMO_PAGE_DESCRIPTION } from '@/memo/data';
+import { getAllCombinedPosts } from '@/memo/services/combined-posts-service';
+import { getAllPosts } from '@/memo/utils';
 
 interface MemoPageProps {
   params: Promise<{

@@ -1,10 +1,10 @@
-import { CareerAnimations } from './career-animations';
-import { EducationSection } from './components/education-section';
-import { PersonalInfo } from './components/personal-info';
-import { SelfPRSection } from './components/self-pr-section';
-import { SimpleTimeline } from './components/simple-timeline';
-import { SkillsMatrix } from './components/skills-matrix';
-import { getCareerData } from './data';
+import { CareerAnimations } from '@/career/career-animations';
+import { EducationSection } from '@/career/components/education-section';
+import { PersonalInfo } from '@/career/components/personal-info';
+import { SelfPRSection } from '@/career/components/self-pr-section';
+import { SimpleTimeline } from '@/career/components/simple-timeline';
+import { SkillsMatrix } from '@/career/components/skills-matrix';
+import { getCareerData } from '@/career/data';
 
 export default function CareerPage() {
   const careerData = getCareerData();

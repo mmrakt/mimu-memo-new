@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatDate, formatDateRange, formatDateRangeForDisplay } from '../date';
+import { formatDate, formatDateRange, formatDateRangeForDisplay } from '@/career/utils/date';
 
 describe('Date Utils', () => {
   describe('formatDateRange', () => {

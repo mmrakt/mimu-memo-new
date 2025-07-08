@@ -1,8 +1,8 @@
 'use client';
 
-import { getGridClass } from '../lib/constants';
-import type { PostListItem } from '../lib/types';
-import MemoCard from './MemoCard';
+import MemoCard from '@/memo/components/MemoCard';
+import { getGridClass } from '@/memo/lib/constants';
+import type { PostListItem } from '@/memo/lib/types';
 
 interface MemoGridProps {
   posts: PostListItem[];

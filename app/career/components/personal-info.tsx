@@ -1,6 +1,6 @@
 import { ExternalLink, Github, MapPin, Twitter } from 'lucide-react';
-import { CAREER_CONFIG } from '../config/constants';
-import type { RawCareerData } from '../types';
+import { CAREER_CONFIG } from '@/career/config/constants';
+import type { RawCareerData } from '@/career/types';
 
 interface PersonalInfoProps {
   personalInfo: RawCareerData['personalInfo'];

@@ -1,7 +1,7 @@
 import { PAGINATION, TAG_ICONS } from '@/config/constants';
-import { handleCriticalError, ValidationError } from '../lib/error-handler';
-import type { PostListItem } from '../lib/types';
-import { getAllCombinedPosts } from './combined-posts-service';
+import { handleCriticalError, ValidationError } from '@/memo/lib/error-handler';
+import type { PostListItem } from '@/memo/lib/types';
+import { getAllCombinedPosts } from '@/memo/services/combined-posts-service';
 
 export interface TagInfo {
   name: string;

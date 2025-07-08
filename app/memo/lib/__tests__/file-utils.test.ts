@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getSlugFromFilename, isPostFile } from '../file-utils';
+import { getSlugFromFilename, isPostFile } from '@/memo/lib/file-utils';
 
 describe('File Utils', () => {
   describe('isPostFile', () => {

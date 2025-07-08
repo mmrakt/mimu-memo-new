@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { RawCareerData } from '../../types';
-import { calculateStats, transformTimelineData } from '../data-transformer';
+import { calculateStats, transformTimelineData } from '@/career/services/data-transformer';
+import type { RawCareerData } from '@/career/types';
 
 describe('Data Transformer', () => {
   const mockRawData: RawCareerData = {

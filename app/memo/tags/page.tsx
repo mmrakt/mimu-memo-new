@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getTagIconPath } from '../components/utils';
-import { getAllTags } from '../services/tag-service';
+import { getTagIconPath } from '@/memo/components/utils';
+import { getAllTags } from '@/memo/services/tag-service';
 
 export default async function TagsPage() {
   const tags = await getAllTags();

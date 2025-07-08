@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import * as JSONC from 'jsonc-parser';
-import { transformToCareerData } from './services/data-transformer';
-import type { CareerData, RawCareerData } from './types';
+import { transformToCareerData } from '@/career/services/data-transformer';
+import type { CareerData, RawCareerData } from '@/career/types';
 
 export function getCareerData(): CareerData {
   try {

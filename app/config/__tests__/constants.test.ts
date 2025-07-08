@@ -6,7 +6,7 @@ import {
   PAGINATION,
   PATHS,
   TAG_ICONS,
-} from '../constants';
+} from '@/config/constants';
 
 describe('Constants', () => {
   describe('PAGE_DESCRIPTIONS', () => {

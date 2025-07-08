@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { convertNumericSkillLevel } from '../skills';
+import { convertNumericSkillLevel } from '@/career/utils/skills';
 
 describe('Skills Utils', () => {
   describe('convertNumericSkillLevel', () => {

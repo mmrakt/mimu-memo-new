@@ -1,5 +1,5 @@
-import { slides } from '../../_contents/slides';
-import type { PostListItem } from '../lib/types';
+import { slides } from '@/_contents/slides';
+import type { PostListItem } from '@/memo/lib/types';
 
 export const getSlides = async (): Promise<PostListItem[]> => {
   return slides.map((slide, index) => ({

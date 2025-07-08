@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatPubDate, sortPostsByDate } from '../date-utils';
+import { formatPubDate, sortPostsByDate } from '@/memo/lib/date-utils';
 
 describe('Date Utils', () => {
   describe('formatPubDate', () => {

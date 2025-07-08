@@ -1,8 +1,8 @@
-import { sortPostsByDate } from '../lib/date-utils';
-import type { PostListItem } from '../lib/types';
-import { getAllExternalPosts } from './external-posts-service';
-import { getAllPosts as getAllInternalPosts } from './post-service';
-import { getSlides } from './slide-service';
+import { sortPostsByDate } from '@/memo/lib/date-utils';
+import type { PostListItem } from '@/memo/lib/types';
+import { getAllExternalPosts } from '@/memo/services/external-posts-service';
+import { getAllPosts as getAllInternalPosts } from '@/memo/services/post-service';
+import { getSlides } from '@/memo/services/slide-service';
 
 /**
  * Get all posts (internal and external) sorted by date

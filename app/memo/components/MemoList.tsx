@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { PAGINATION } from '@/config/constants';
-import type { PostListItem } from '../lib/types';
-import MemoGrid from './MemoGrid';
-import Pagination from './Pagination';
+import MemoGrid from '@/memo/components/MemoGrid';
+import Pagination from '@/memo/components/Pagination';
+import type { PostListItem } from '@/memo/lib/types';
 
 interface MemoListProps {
   posts: PostListItem[];

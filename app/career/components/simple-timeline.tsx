@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import { CAREER_CONFIG } from '../config/constants';
-import type { DetailedTimelineItem } from '../types';
-import { setupScrollAnimations } from '../utils/animation';
-import { formatDateRangeForDisplay } from '../utils/date';
+import { CAREER_CONFIG } from '@/career/config/constants';
+import type { DetailedTimelineItem } from '@/career/types';
+import { setupScrollAnimations } from '@/career/utils/animation';
+import { formatDateRangeForDisplay } from '@/career/utils/date';
 
 interface SimpleTimelineProps {
   timeline: DetailedTimelineItem[];

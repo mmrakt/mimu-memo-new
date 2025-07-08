@@ -1,6 +1,6 @@
 'use client';
 
-import type { Skill, SkillCategory } from '../types';
+import type { Skill, SkillCategory } from '@/career/types';
 
 interface SkillsMatrixProps {
   skills: SkillCategory[];

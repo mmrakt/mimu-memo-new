@@ -1,8 +1,14 @@
-以下の方針でリファクタリングしてください。
+Refactor according to the following policies and rules:
 
-- Lint, Format を実行
-- 不要になっているファイルやコードの削除
-- 類似ソースコードやドキュメントの散在の抑制
-- ハードコーディングやマジックナンバーの設定ファイル化
-- 適切なディレクトリ設計やコンポーネント分割
-- 重要な処理の外部化、テスタブル化、不足しているテストケースの追加
+## Policies
+
+- Run Lint, Format
+- Remove files and code that are no longer needed
+- Reduce scattering of similar source code and documentation
+- Hard-coding and magic number configuration files
+- Properly design directories and split components
+- Externalize critical processes, make them testable, add missing test cases
+
+## Rules
+
+- Use absolute imports as import aliases

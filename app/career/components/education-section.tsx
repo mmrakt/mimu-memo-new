@@ -1,8 +1,8 @@
 'use client';
 
-import { CAREER_CONFIG } from '../config/constants';
-import type { AwardItem, CertificationItem, EducationItem } from '../types';
-import { formatDateRangeForDisplay } from '../utils/date';
+import { CAREER_CONFIG } from '@/career/config/constants';
+import type { AwardItem, CertificationItem, EducationItem } from '@/career/types';
+import { formatDateRangeForDisplay } from '@/career/utils/date';
 
 interface EducationSectionProps {
   education: EducationItem[];

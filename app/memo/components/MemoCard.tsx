@@ -4,9 +4,9 @@ import { Calendar, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PAGINATION } from '@/config/constants';
-import { getMediaDisplayName, getMediaStyles, isExternalMedia } from '../lib/media-utils';
-import type { PostListItem } from '../lib/types';
-import { getTagIconPath } from './utils';
+import { getTagIconPath } from '@/memo/components/utils';
+import { getMediaDisplayName, getMediaStyles, isExternalMedia } from '@/memo/lib/media-utils';
+import type { PostListItem } from '@/memo/lib/types';
 
 interface MemoCardProps {
   post: PostListItem;

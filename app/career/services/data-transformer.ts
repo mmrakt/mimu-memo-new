@@ -1,4 +1,4 @@
-import { CAREER_CONFIG } from '../config/constants';
+import { CAREER_CONFIG } from '@/career/config/constants';
 import type {
   CareerData,
   CertificationItem,
@@ -7,9 +7,9 @@ import type {
   RawCareerData,
   SkillCategory,
   StatItem,
-} from '../types';
-import { formatDateRange } from '../utils/date';
-import { convertNumericSkillLevel } from '../utils/skills';
+} from '@/career/types';
+import { formatDateRange } from '@/career/utils/date';
+import { convertNumericSkillLevel } from '@/career/utils/skills';
 
 export function transformTimelineData(rawData: RawCareerData): DetailedTimelineItem[] {
   const timeline: DetailedTimelineItem[] = [];

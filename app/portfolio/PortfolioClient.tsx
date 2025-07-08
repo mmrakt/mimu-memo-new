@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react';
 import AnimatedBackground from '@/_components/AnimatedBackground';
 import PageHeader from '@/_components/PageHeader';
-import FilterButtons from './components/FilterButtons';
-import PortfolioCard from './components/PortfolioCard';
-import PortfolioModal from './components/PortfolioModal';
-import { filterOptions } from './data';
-import type { PortfolioItem } from './types';
+import FilterButtons from '@/portfolio/components/FilterButtons';
+import PortfolioCard from '@/portfolio/components/PortfolioCard';
+import PortfolioModal from '@/portfolio/components/PortfolioModal';
+import { filterOptions } from '@/portfolio/data';
+import type { PortfolioItem } from '@/portfolio/types';
 
 interface PortfolioClientProps {
   portfolioItems: PortfolioItem[];

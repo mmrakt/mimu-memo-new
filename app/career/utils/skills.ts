@@ -1,5 +1,5 @@
-import { CAREER_CONFIG } from '../config/constants';
-import type { Skill } from '../types';
+import { CAREER_CONFIG } from '@/career/config/constants';
+import type { Skill } from '@/career/types';
 
 export function convertNumericSkillLevel(level: number): Skill['level'] {
   return (

@@ -1,4 +1,4 @@
-import { CAREER_CONFIG } from '../config/constants';
+import { CAREER_CONFIG } from '@/career/config/constants';
 
 export function setupScrollAnimations(): () => void {
   const timelineItems = document.querySelectorAll('.timeline-item');

@@ -5,8 +5,8 @@ import {
   makeZennPosts,
   sortPostsByPubDate,
 } from '@/_contents/utils';
-import { safeAsync } from '../lib/error-handler';
-import type { PostListItem } from '../lib/types';
+import { safeAsync } from '@/memo/lib/error-handler';
+import type { PostListItem } from '@/memo/lib/types';
 
 export interface ExternalPostListItem extends PostListItem {
   media: MediaType;

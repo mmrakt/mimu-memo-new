@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { isValidTag, TAG_LIST, validateTag, validateTagSafe } from './tag-service';
+import { isValidTag, TAG_LIST, validateTag, validateTagSafe } from '@/memo/services/tag-service';
 
 describe('Tag Service', () => {
   describe('TAG_LIST', () => {
@@ -17,7 +17,7 @@ describe('Tag Service', () => {
     });
 
     it('should have correct length', () => {
-      expect(TAG_LIST).toHaveLength(10);
+      expect(TAG_LIST).toHaveLength(12);
     });
 
     it('should be readonly constant', () => {
@@ -53,8 +53,8 @@ describe('Tag Service', () => {
     it('should return false for empty or falsy values', () => {
       expect(isValidTag('')).toBe(false);
       expect(isValidTag('   ')).toBe(false);
-      expect(isValidTag(null as any)).toBe(false);
-      expect(isValidTag(undefined as any)).toBe(false);
+      expect(isValidTag(null as unknown as string)).toBe(false);
+      expect(isValidTag(undefined as unknown as string)).toBe(false);
     });
 
     it('should be case sensitive', () => {
@@ -118,10 +118,10 @@ describe('Tag Service', () => {
     });
 
     it('should call process.exit for null and undefined inputs', () => {
-      validateTag(null as any);
+      validateTag(null as unknown as string);
       expect(mockProcessExit).toHaveBeenCalledWith(1);
 
-      validateTag(undefined as any);
+      validateTag(undefined as unknown as string);
       expect(mockProcessExit).toHaveBeenCalledWith(1);
     });
 
@@ -164,8 +164,8 @@ describe('Tag Service', () => {
     it('should return fallback for empty or falsy values', () => {
       expect(validateTagSafe('')).toBe('other');
       expect(validateTagSafe('   ')).toBe('other');
-      expect(validateTagSafe(null as any)).toBe('other');
-      expect(validateTagSafe(undefined as any)).toBe('other');
+      expect(validateTagSafe(null as unknown as string)).toBe('other');
+      expect(validateTagSafe(undefined as unknown as string)).toBe('other');
     });
 
     it('should use custom fallback when provided', () => {

@@ -2,9 +2,9 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { FILE_EXTENSIONS, PATHS } from '@/config/constants';
-import { validateTag } from '../services/tag-service';
-import { formatPubDate } from './date-utils';
-import type { MemoContent } from './types';
+import { formatPubDate } from '@/memo/lib/date-utils';
+import type { MemoContent } from '@/memo/lib/types';
+import { validateTag } from '@/memo/services/tag-service';
 
 export async function parseMdFile(filePath: string): Promise<MemoContent | null> {
   try {

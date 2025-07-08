@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
-import type { PortfolioItem } from '../types';
-import styles from './markdown.module.css';
+import styles from '@/portfolio/components/markdown.module.css';
+import type { PortfolioItem } from '@/portfolio/types';
 
 interface PortfolioModalProps {
   item: PortfolioItem | null;

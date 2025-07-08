@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import 'highlight.js/styles/github-dark.css';
+import Footer from '@/_components/Footer';
+import Navigation from '@/_components/Navigation';
 import { ABOUT_SITE, MY_NAME, SITE_NAME } from '@/config';
-import Footer from './_components/Footer';
-import Navigation from './_components/Navigation';
 
 const inter = Inter({
   subsets: ['latin'],
