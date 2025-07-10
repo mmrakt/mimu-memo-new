@@ -6,6 +6,7 @@ github: "https://github.com/mmrakt/update-chrome-extension-version-action"
 developmentPeriod: "2023.10 - 2023.10"
 image: "update-chrome-extension-version-action.png"
 tags: ["GitHub Actions", "Chrome Extension", "Automation"]
+isActive: false
 ---
 
 ## Summary

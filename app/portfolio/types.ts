@@ -9,6 +9,7 @@ export interface PortfolioItem {
   github: string;
   fullDescription: string;
   developmentPeriod?: string;
+  isActive?: boolean;
 }
 
 export interface FilterOption {

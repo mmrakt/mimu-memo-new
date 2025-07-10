@@ -6,6 +6,7 @@ github: "https://github.com/mmrakt/chat-gpt-clone"
 developmentPeriod: "2023.08 - 2023.11"
 image: "chatgpt-clone.gif"
 tags: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "Auth.js"]
+isActive: false
 ---
 
 ## Summary

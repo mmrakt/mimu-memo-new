@@ -6,6 +6,7 @@ github: "https://github.com/mmrakt/hack-timer"
 developmentPeriod: "2022.11 - 2023.11"
 image: "hack-timer.png"
 tags: ["React", "TypeScript", "Tailwind CSS", "Vite"]
+isActive: false
 ---
 
 ## Summary

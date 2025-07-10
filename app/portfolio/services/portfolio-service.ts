@@ -55,6 +55,7 @@ export async function getAllPortfolioItems(): Promise<PortfolioItem[]> {
           github: data.github || '',
           fullDescription: content.trim() || data.description || '',
           developmentPeriod: data.developmentPeriod || undefined,
+          isActive: data.isActive ?? true,
         };
 
         portfolioItems.push(portfolioItem);
@@ -117,6 +118,7 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
       github: data.github || '',
       fullDescription: content.trim() || data.description || '',
       developmentPeriod: data.developmentPeriod || undefined,
+      isActive: data.isActive ?? true,
     };
   } catch (error) {
     console.error(`Error loading portfolio item ${slug}:`, error);

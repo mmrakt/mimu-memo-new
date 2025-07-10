@@ -6,6 +6,7 @@ github: "https://github.com/mmrakt/syntax-swap"
 developmentPeriod: "2023.10 - 2023.10"
 image: "syntax-swap.gif"
 tags: ["React", "TypeScript", "Vite", "TailwindCSS"]
+isActive: false
 ---
 
 ## Summary

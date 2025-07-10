@@ -104,15 +104,17 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
           </div>
 
           <div className="flex gap-4">
-            <a
-              href={item.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30"
-            >
-              <ExternalLink className="w-5 h-5" />
-              Live Demo
-            </a>
+            {item.isActive !== false && (
+              <a
+                href={item.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Live Demo
+              </a>
+            )}
             <a
               href={item.github}
               target="_blank"
