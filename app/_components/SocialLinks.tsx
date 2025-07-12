@@ -1,10 +1,12 @@
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
+import { XIcon } from '@/_components/icons/XIcon';
+import { GitHubIcon } from '@/_components/icons/GitHubIcon';
 
 const socialLinks = [
   {
     name: 'GitHub',
     href: 'https://github.com',
-    icon: Github,
+    icon: GitHubIcon,
     ariaLabel: 'GitHub profile',
   },
   {
@@ -14,10 +16,10 @@ const socialLinks = [
     ariaLabel: 'LinkedIn profile',
   },
   {
-    name: 'Twitter',
-    href: 'https://twitter.com',
-    icon: Twitter,
-    ariaLabel: 'Twitter profile',
+    name: 'X',
+    href: 'https://x.com',
+    icon: XIcon,
+    ariaLabel: 'X profile',
   },
 ];
 

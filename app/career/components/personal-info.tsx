@@ -1,4 +1,6 @@
-import { ExternalLink, Github, MapPin, Twitter } from "lucide-react";
+import { ExternalLink, MapPin } from "lucide-react";
+import { XIcon } from "@/_components/icons/XIcon";
+import { GitHubIcon } from "@/_components/icons/GitHubIcon";
 import { CAREER_CONFIG } from "@/career/config/constants";
 import type { RawCareerData } from "@/career/types";
 
@@ -27,7 +29,7 @@ export function PersonalInfo({ personalInfo }: PersonalInfoProps) {
           className="text-cyan-400 hover:text-cyan-300 transition-colors"
           aria-label="View GitHub profile"
         >
-          <Github className="w-5 h-5" />
+          <GitHubIcon className="w-5 h-5" />
         </a>
         {personalInfo.contact.x && (
           <a
@@ -37,7 +39,7 @@ export function PersonalInfo({ personalInfo }: PersonalInfoProps) {
             className="text-cyan-400 hover:text-cyan-300 transition-colors"
             aria-label="Follow on X"
           >
-            <Twitter className="w-5 h-5" />
+            <XIcon className="w-5 h-5" />
           </a>
         )}
       </div>
