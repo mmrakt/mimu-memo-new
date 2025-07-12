@@ -15,7 +15,7 @@ function startDevServer(): void {
   }
 
   console.log('🚀 Starting Next.js dev server...');
-  devServer = spawn('bun', ['run', 'dev'], {
+  devServer = spawn('pnpm', ['run', 'dev'], {
     stdio: 'pipe',
     cwd: process.cwd(),
   });

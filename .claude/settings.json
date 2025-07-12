@@ -74,10 +74,10 @@
       "Bash(pnpm typecheck:*)",
       "Bash(pnpm biome format:*)",
       "WebFetch(domain:ai.google.dev)",
-      "Bash(bun add:*)",
-      "Bash(bun test:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm test:*)",
       "Bash(mv:*)",
-      "Bash(bun check:*)",
+      "Bash(pnpm check:*)",
       "Bash(rm -rf ~/)"
     ],
     "deny": []
@@ -89,7 +89,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/ghq/github.com/mmrakt/mimu-memo-new/.claude/hooks/use-bun.sh"
+            "command": "~/ghq/github.com/mmrakt/mimu-memo-new/.claude/hooks/use-pnpm.sh"
           }
         ]
       }

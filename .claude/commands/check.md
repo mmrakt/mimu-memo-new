@@ -2,11 +2,11 @@ Check lint and type-check, unit-test errors, and fix them.
 
 ```sh
 // check
-bun check:fix
+pnpm check:fix
 
 // type-check
-bun tc
+pnpm tc
 
 // unit-test
-bun test
+pnpm test
 ```

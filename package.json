@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "dev:watch": "bun scripts/dev-watcher.ts",
+    "dev:watch": "pnpm exec tsx scripts/dev-watcher.ts",
     "build": "next build",
     "start": "next start",
     "tc": "tsgo",
@@ -47,6 +47,7 @@
     "rss-parser": "^3.13.0",
     "strip-markdown": "^6.0.0",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "typescript": "^5",
     "vitest": "^3.2.4"
   }
