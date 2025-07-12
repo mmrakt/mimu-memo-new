@@ -1,9 +1,9 @@
-import { ExternalLink, Github, MapPin, Twitter } from 'lucide-react';
-import { CAREER_CONFIG } from '@/career/config/constants';
-import type { RawCareerData } from '@/career/types';
+import { ExternalLink, Github, MapPin, Twitter } from "lucide-react";
+import { CAREER_CONFIG } from "@/career/config/constants";
+import type { RawCareerData } from "@/career/types";
 
 interface PersonalInfoProps {
-  personalInfo: RawCareerData['personalInfo'];
+  personalInfo: RawCareerData["personalInfo"];
 }
 
 export function PersonalInfo({ personalInfo }: PersonalInfoProps) {
@@ -20,15 +20,6 @@ export function PersonalInfo({ personalInfo }: PersonalInfoProps) {
 
       {/* Social Links */}
       <div className="flex flex-wrap items-center justify-center gap-4">
-        <a
-          href={personalInfo.contact.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-cyan-400 hover:text-cyan-300 transition-colors"
-          aria-label="Visit website"
-        >
-          <ExternalLink className="w-5 h-5" />
-        </a>
         <a
           href={personalInfo.contact.github}
           target="_blank"
