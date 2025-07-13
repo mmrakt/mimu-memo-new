@@ -1,11 +1,11 @@
 import { ExternalLink, X } from 'lucide-react';
-import Image from 'next/image';
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import styles from '@/portfolio/components/markdown.module.css';
 import type { PortfolioItem } from '@/portfolio/types';
+import MediaComponent from './MediaComponent';
 
 interface PortfolioModalProps {
   item: PortfolioItem | null;
@@ -64,7 +64,7 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
         </button>
 
         <div className="relative w-full">
-          <Image
+          <MediaComponent
             src={item.image}
             alt={item.title}
             width={800}
@@ -80,10 +80,8 @@ export default function PortfolioModal({ item, onClose }: PortfolioModalProps) {
             {item.title}
           </h2>
 
-          {item.developmentPeriod && (
-            <p className="text-slate-400 mb-6 text-sm">
-              Development Period: {item.developmentPeriod}
-            </p>
+          {item.startedAt && (
+            <p className="text-slate-400 mb-6 text-sm">Started: {item.startedAt}</p>
           )}
 
           <div className="flex flex-wrap gap-2 mb-6">

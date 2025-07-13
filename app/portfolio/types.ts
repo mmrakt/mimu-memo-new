@@ -8,7 +8,7 @@ export interface PortfolioItem {
   demo: string;
   github: string;
   fullDescription: string;
-  developmentPeriod?: string;
+  startedAt?: string;
   isActive?: boolean;
 }
 
@@ -18,3 +18,14 @@ export interface FilterOption {
 }
 
 export type CategoryKey = 'solo-development';
+
+export interface PortfolioFrontmatter {
+  title?: string;
+  description?: string;
+  image?: string;
+  tags?: string[];
+  url?: string;
+  github?: string;
+  startedAt?: string;
+  isActive?: boolean;
+}

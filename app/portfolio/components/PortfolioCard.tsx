@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import { getCategoryName } from '@/portfolio/data';
 import type { PortfolioItem } from '@/portfolio/types';
+import MediaComponent from './MediaComponent';
 
 interface PortfolioCardProps {
   item: PortfolioItem;
@@ -31,7 +31,7 @@ export default function PortfolioCard({ item, index, onCardClick }: PortfolioCar
       aria-label={`View details for ${item.title}`}
     >
       <div className="relative overflow-hidden">
-        <Image
+        <MediaComponent
           src={item.image}
           alt={item.title}
           width={400}

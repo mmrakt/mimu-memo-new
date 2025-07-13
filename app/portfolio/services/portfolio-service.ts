@@ -2,7 +2,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { FILE_EXTENSIONS } from '@/config/constants';
-import type { CategoryKey, PortfolioItem } from '@/portfolio/types';
+import type { CategoryKey, PortfolioFrontmatter, PortfolioItem } from '@/portfolio/types';
 
 const PORTFOLIO_CONTENT_DIR = 'app/_contents/portfolio';
 
@@ -12,10 +12,6 @@ export async function getPortfolioDirectory(): Promise<string> {
 
 function isPortfolioFile(filename: string): boolean {
   return filename.endsWith(FILE_EXTENSIONS.MARKDOWN) || filename.endsWith(FILE_EXTENSIONS.MDX);
-}
-
-function getSlugFromFilename(filename: string): string {
-  return filename.replace(/\.(md|mdx)$/, '');
 }
 
 export async function getAllPortfolioItems(): Promise<PortfolioItem[]> {
@@ -28,12 +24,14 @@ export async function getAllPortfolioItems(): Promise<PortfolioItem[]> {
     for (const filename of filenames) {
       if (!isPortfolioFile(filename)) continue;
 
-      const _slug = getSlugFromFilename(filename);
       const filePath = path.join(portfolioDirectory, filename);
 
       try {
         const fileContent = await fs.readFile(filePath, 'utf-8');
-        const { data, content } = matter(fileContent);
+        const { data, content } = matter(fileContent) as {
+          data: PortfolioFrontmatter;
+          content: string;
+        };
 
         // All portfolio items are solo development
         const category: CategoryKey = 'solo-development';
@@ -54,7 +52,7 @@ export async function getAllPortfolioItems(): Promise<PortfolioItem[]> {
           demo: data.url || '',
           github: data.github || '',
           fullDescription: content.trim() || data.description || '',
-          developmentPeriod: data.developmentPeriod || undefined,
+          startedAt: data.startedAt || undefined,
           isActive: data.isActive ?? true,
         };
 
@@ -64,7 +62,23 @@ export async function getAllPortfolioItems(): Promise<PortfolioItem[]> {
       }
     }
 
-    return portfolioItems;
+    // Sort by startedAt in descending order (newest first)
+    return portfolioItems.sort((a, b) => {
+      if (!a.startedAt && !b.startedAt) return 0;
+      if (!a.startedAt) return 1;
+      if (!b.startedAt) return -1;
+
+      // Parse startedAt format (YYYY.MM)
+      const parseDate = (dateStr: string) => {
+        const [year, month] = dateStr.split('.');
+        return new Date(parseInt(year), parseInt(month) - 1);
+      };
+
+      const dateA = parseDate(a.startedAt);
+      const dateB = parseDate(b.startedAt);
+
+      return dateB.getTime() - dateA.getTime();
+    });
   } catch (error) {
     console.error('Error reading portfolio directory:', error);
     return [];
@@ -96,7 +110,10 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
     }
 
     const fileContent = await fs.readFile(filePath, 'utf-8');
-    const { data, content } = matter(fileContent);
+    const { data, content } = matter(fileContent) as {
+      data: PortfolioFrontmatter;
+      content: string;
+    };
 
     // All portfolio items are solo development
     const category: CategoryKey = 'solo-development';
@@ -117,7 +134,7 @@ export async function getPortfolioItemBySlug(slug: string): Promise<PortfolioIte
       demo: data.url || '',
       github: data.github || '',
       fullDescription: content.trim() || data.description || '',
-      developmentPeriod: data.developmentPeriod || undefined,
+      startedAt: data.startedAt || undefined,
       isActive: data.isActive ?? true,
     };
   } catch (error) {

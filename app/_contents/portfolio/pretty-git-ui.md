@@ -3,8 +3,8 @@ title: "Pretty Git UI"
 description: "Rust製のGit TUIアプリ"
 url: "https://github.com/mmrakt/pretty-git-ui"
 github: "https://github.com/mmrakt/pretty-git-ui"
-developmentPeriod: "2025.05 - 2025.05"
-image: "/portfolio/pretty-git-ui.gif"
+startedAt: "2025.05"
+image: "/portfolio/pretty-git-ui.mp4"
 tags: ["Rust"]
 isActive: true
 ---

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { ExternalLink } from "lucide-react";
-import { memo } from "react";
+import { ExternalLink } from 'lucide-react';
+import { memo } from 'react';
 import {
   GITHUB_URL_PREFIX,
   QIITA_URL_PREFIX,
@@ -10,7 +10,7 @@ import {
   WANTEDLY_URL_PREFIX,
   X_PROFILE_URL,
   ZENN_URL_PREFIX,
-} from "@/config";
+} from '@/config';
 
 interface ExternalLinkItem {
   name: string;
@@ -20,34 +20,34 @@ interface ExternalLinkItem {
 
 const externalLinks: ExternalLinkItem[] = [
   {
-    name: "X (Twitter)",
+    name: 'X (Twitter)',
     href: X_PROFILE_URL,
-    icon: "𝕏",
+    icon: '𝕏',
   },
   {
-    name: "GitHub",
+    name: 'GitHub',
     href: `${GITHUB_URL_PREFIX}/${SNS_ID}`,
-    icon: "⚡",
+    icon: '⚡',
   },
   {
-    name: "Scrapbox",
+    name: 'Scrapbox',
     href: `${SCRAPBOX_URL_PREFIX}/mimu`,
-    icon: "📝",
+    icon: '📝',
   },
   {
-    name: "Zenn",
+    name: 'Zenn',
     href: `${ZENN_URL_PREFIX}/${SNS_ID}`,
-    icon: "📚",
+    icon: '📚',
   },
   {
-    name: "Qiita",
+    name: 'Qiita',
     href: `${QIITA_URL_PREFIX}/${SNS_ID}`,
-    icon: "💡",
+    icon: '💡',
   },
   {
-    name: "Wantedly",
+    name: 'Wantedly',
     href: `${WANTEDLY_URL_PREFIX}/id/mimura_akito`,
-    icon: "🤝",
+    icon: '🤝',
   },
 ];
 
@@ -71,7 +71,7 @@ export const ExternalLinks = memo(function ExternalLinks() {
               className={`group block p-6 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 text-center opacity-0 animate-fade-in-up focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900`}
               style={{
                 animationDelay: `${index * 100}ms`,
-                animationFillMode: "forwards",
+                animationFillMode: 'forwards',
               }}
               aria-label={`Visit ${link.name} profile (opens in new tab)`}
             >

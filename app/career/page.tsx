@@ -1,9 +1,9 @@
-import { CareerAnimations } from '@/career/career-animations';
-import { EducationSection } from '@/career/components/education-section';
-import { PersonalInfo } from '@/career/components/personal-info';
-import { SelfPRSection } from '@/career/components/self-pr-section';
-import { SimpleTimeline } from '@/career/components/simple-timeline';
-import { SkillsMatrix } from '@/career/components/skills-matrix';
+import { CareerAnimations } from '@/career/CareerAnimations';
+import { EducationSection } from '@/career/components/EducationSection';
+import { PersonalInfo } from '@/career/components/PersonalInfo';
+import { SelfPRSection } from '@/career/components/SelfPrSection';
+import { SimpleTimeline } from '@/career/components/SimpleTimeline';
+import { SkillsMatrix } from '@/career/components/SkillsMatrix';
 import { getCareerData } from '@/career/data';
 
 export default function CareerPage() {
