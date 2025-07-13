@@ -1,25 +1,30 @@
-import { Linkedin } from 'lucide-react';
-import { XIcon } from '@/_components/icons/XIcon';
-import { GitHubIcon } from '@/_components/icons/GitHubIcon';
+import { Linkedin, X } from "lucide-react";
+import { XIcon } from "@/_components/icons/XIcon";
+import { GitHubIcon } from "@/_components/icons/GitHubIcon";
+import {
+  GITHUB_PROFILE_URL,
+  LINKEDIN_PROFILE_URL,
+  X_PROFILE_URL,
+} from "@/config";
 
 const socialLinks = [
   {
-    name: 'GitHub',
-    href: 'https://github.com',
+    name: "GitHub",
+    href: GITHUB_PROFILE_URL,
     icon: GitHubIcon,
-    ariaLabel: 'GitHub profile',
+    ariaLabel: "GitHub profile",
   },
   {
-    name: 'LinkedIn',
-    href: 'https://linkedin.com',
+    name: "LinkedIn",
+    href: LINKEDIN_PROFILE_URL,
     icon: Linkedin,
-    ariaLabel: 'LinkedIn profile',
+    ariaLabel: "LinkedIn profile",
   },
   {
-    name: 'X',
-    href: 'https://x.com',
+    name: "X",
+    href: X_PROFILE_URL,
     icon: XIcon,
-    ariaLabel: 'X profile',
+    ariaLabel: "X profile",
   },
 ];
 
