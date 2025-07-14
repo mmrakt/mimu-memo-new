@@ -8,6 +8,9 @@ pre-commit:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: bun tc {staged_files}
       stage_fixed: true
+      exclude:
+        - tsconfig.json
+        - package.json
     test:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: bun test {staged_files}
@@ -21,6 +24,9 @@ pre-push:
     tc:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: bun tc {push_files}
+      exclude:
+        - tsconfig.json
+        - package.json
     test:
       glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
       run: bun test {push_files}
