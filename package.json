@@ -1,5 +1,5 @@
 {
-  "name": "mimu-memo-new",
+  "name": "mimu-memo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -52,5 +52,6 @@
     "tsx": "^4.20.3",
     "typescript": "^5",
     "vitest": "^3.2.4"
-  }
+  },
+  "packageManager": "pnpm@10.13.1"
 }
