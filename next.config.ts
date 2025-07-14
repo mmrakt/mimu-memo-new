@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [new URL("https://placehold.jp/**")],
   },
+  outputFileTracingExcludes: {
+    "*": [".pnpm-store/**/*"],
+  },
 };
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
