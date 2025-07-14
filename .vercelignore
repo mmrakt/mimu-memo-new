@@ -1,0 +1,4 @@
+.pnpm-store/
+**/.pnpm-store/
+**/pnpm-store/
+.git/
