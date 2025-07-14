@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "dev:watch": "pnpm exec tsx scripts/dev-watcher.ts",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "tc": "tsgo",
     "check": "biome check ./app",
@@ -15,6 +16,7 @@
     "test:coverage": "vitest --coverage"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^15.3.5",
     "dayjs": "^1.11.13",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",

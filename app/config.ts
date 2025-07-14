@@ -24,7 +24,7 @@ export const MEDIA_TYPE_LIST_FOR_DISPLAY = ['mimu-memo', 'Qiita', 'Zenn', 'note'
 
 export const SNS_ID = 'mmrakt';
 export const X_ID = 'mimu_pg';
-export const ZENN_FEED_URL = `${ZENN_URL_PREFIX}${SNS_ID}/feed?all=1`;
+export const ZENN_FEED_URL = `${ZENN_URL_PREFIX}/${SNS_ID}/feed?all=1`;
 export const NOTE_FEED_URL = `${NOTE_URL_PREFIX}/${SNS_ID}/rss`;
 export const QIITA_API_ENDPOINT = `${QIITA_URL_PREFIX}/api/v2/authenticated_user/items`;
 
