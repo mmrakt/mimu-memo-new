@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "*": [".pnpm-store/**/*"],
   },
+  sassOptions: {
+    implementation: "sass-embedded",
+  },
 };
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({

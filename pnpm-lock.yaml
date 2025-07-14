@@ -45,6 +45,12 @@ importers:
       '@biomejs/biome':
         specifier: ^2.0.6
         version: 2.1.1
+      '@tailwindcss/oxide-darwin-arm64':
+        specifier: ^4.1.11
+        version: 4.1.11
+      '@tailwindcss/oxide-darwin-x64':
+        specifier: ^4.1.11
+        version: 4.1.11
       '@tailwindcss/postcss':
         specifier: ^4.1.11
         version: 4.1.11
@@ -90,6 +96,12 @@ importers:
       lefthook:
         specifier: ^1.12.1
         version: 1.12.2
+      lightningcss-darwin-arm64:
+        specifier: ^1.30.1
+        version: 1.30.1
+      postcss:
+        specifier: ^8.5.6
+        version: 8.5.6
       remark:
         specifier: ^15.0.1
         version: 15.0.1
@@ -2748,11 +2760,9 @@ snapshots:
   '@tailwindcss/oxide-android-arm64@4.1.11':
     optional: true
 
-  '@tailwindcss/oxide-darwin-arm64@4.1.11':
-    optional: true
+  '@tailwindcss/oxide-darwin-arm64@4.1.11': {}
 
-  '@tailwindcss/oxide-darwin-x64@4.1.11':
-    optional: true
+  '@tailwindcss/oxide-darwin-x64@4.1.11': {}
 
   '@tailwindcss/oxide-freebsd-x64@4.1.11':
     optional: true
@@ -3440,8 +3450,7 @@ snapshots:
       lefthook-windows-arm64: 1.12.2
       lefthook-windows-x64: 1.12.2
 
-  lightningcss-darwin-arm64@1.30.1:
-    optional: true
+  lightningcss-darwin-arm64@1.30.1: {}
 
   lightningcss-darwin-x64@1.30.1:
     optional: true
