@@ -9,6 +9,8 @@ import remarkGfm from 'remark-gfm';
 import AnimatedBackground from '@/_components/AnimatedBackground';
 import { getTagIconPath } from '@/memo/components/utils';
 import { getAllMemoSlugs, getMemoBySlug } from '@/memo/utils';
+import CodeBlock from './components/CodeBlock';
+import ZoomableImage from './components/ZoomableImage';
 import styles from './markdown.module.css';
 
 interface MemoDetailPageProps {
@@ -99,7 +101,27 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
           <div className="p-8 space-y-6">
             {isMarkdown && content ? (
               <div className={styles.markdown}>
-                <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]} 
+                  rehypePlugins={[rehypeHighlight]}
+                  components={{
+                    code: ({ className, children, ...props }) => {
+                      const match = /language-(\w+)/.exec(className || '');
+                      return match ? (
+                        <CodeBlock className={className}>
+                          {String(children).replace(/\n$/, '')}
+                        </CodeBlock>
+                      ) : (
+                        <code className={className} {...props}>
+                          {children}
+                        </code>
+                      );
+                    },
+                    img: ({ src, alt, ...props }) => (
+                      <ZoomableImage src={src || ''} alt={alt || ''} {...props} />
+                    ),
+                  }}
+                >
                   {content}
                 </ReactMarkdown>
               </div>
