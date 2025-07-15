@@ -19,7 +19,7 @@ export function CareerAnimations({ heroContent, restContent }: CareerAnimationsP
       reveals.forEach((element) => {
         const windowHeight = window.innerHeight;
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
+        const elementVisible = 50;
 
         if (elementTop < windowHeight - elementVisible) {
           element.classList.add('opacity-100', 'translate-y-0');
@@ -41,7 +41,10 @@ export function CareerAnimations({ heroContent, restContent }: CareerAnimationsP
           }
         });
       },
-      { threshold: 0.1 },
+      { 
+        threshold: 0.01,
+        rootMargin: "0px 0px -100px 0px"
+      },
     );
 
     const timelineItems = document.querySelectorAll('.timeline-item');
