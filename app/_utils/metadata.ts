@@ -1,42 +1,42 @@
-import type { Metadata } from 'next';
-import { ABOUT_SITE, MY_NAME, SITE_NAME } from '@/config';
+import type { Metadata } from "next";
+import { ABOUT_SITE, MY_NAME, SITE_NAME, SITE_URL } from "@/config";
 
 interface MetadataConfig {
   title?: string;
   description?: string;
   path?: string;
   image?: string;
-  type?: 'website' | 'article';
+  type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
   tags?: string[];
 }
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://mimu-memo.vercel.app';
-const DEFAULT_OG_IMAGE = '/ogp/thumbnail.png';
+const DEFAULT_OG_IMAGE = "/ogp/thumbnail.png";
 
 export function generateMetadata(config: MetadataConfig = {}): Metadata {
   const {
     title,
-    description = ABOUT_SITE.join(' '),
-    path = '',
+    description = ABOUT_SITE.join(" "),
+    path = "",
     image = DEFAULT_OG_IMAGE,
-    type = 'website',
+    type = "website",
     publishedTime,
     modifiedTime,
     author = MY_NAME,
     tags = [],
   } = config;
 
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | ${MY_NAME}'s personal site`;
-  const url = `${BASE_URL}${path}`;
-  const imageUrl = image.startsWith('http') ? image : `${BASE_URL}${image}`;
+  const fullTitle = title
+    ? `${title} | ${SITE_NAME}`
+    : `${SITE_NAME} | ${MY_NAME}'s personal site`;
+  const url = `${SITE_URL}${path}`;
+  const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
 
   const metadata: Metadata = {
     title: fullTitle,
     description,
-    metadataBase: new URL(BASE_URL),
+    metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: url,
     },
@@ -53,15 +53,15 @@ export function generateMetadata(config: MetadataConfig = {}): Metadata {
           alt: title || `${SITE_NAME} - ${MY_NAME}'s personal site`,
         },
       ],
-      locale: 'ja_JP',
+      locale: "ja_JP",
       type,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: fullTitle,
       description,
       images: [imageUrl],
-      creator: '@mmrakt',
+      creator: "@mmrakt",
     },
     robots: {
       index: true,
@@ -69,9 +69,9 @@ export function generateMetadata(config: MetadataConfig = {}): Metadata {
       googleBot: {
         index: true,
         follow: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     verification: {
@@ -80,10 +80,10 @@ export function generateMetadata(config: MetadataConfig = {}): Metadata {
   };
 
   // Add article-specific metadata
-  if (type === 'article') {
+  if (type === "article") {
     metadata.openGraph = {
       ...metadata.openGraph,
-      type: 'article',
+      type: "article",
       publishedTime,
       modifiedTime,
       authors: [author],
@@ -92,17 +92,21 @@ export function generateMetadata(config: MetadataConfig = {}): Metadata {
 
     // Add structured data for articles
     metadata.other = {
-      'article:author': author,
-      'article:published_time': publishedTime || '',
-      'article:modified_time': modifiedTime || '',
-      'article:tag': tags.join(','),
+      "article:author": author,
+      "article:published_time": publishedTime || "",
+      "article:modified_time": modifiedTime || "",
+      "article:tag": tags.join(","),
     };
   }
 
   return metadata;
 }
 
-export function generatePageMetadata(title: string, description?: string, path?: string): Metadata {
+export function generatePageMetadata(
+  title: string,
+  description?: string,
+  path?: string
+): Metadata {
   return generateMetadata({
     title,
     description,
@@ -116,13 +120,13 @@ export function generateArticleMetadata(
   path: string,
   publishedTime?: string,
   modifiedTime?: string,
-  tags?: string[],
+  tags?: string[]
 ): Metadata {
   return generateMetadata({
     title,
     description,
     path,
-    type: 'article',
+    type: "article",
     publishedTime,
     modifiedTime,
     tags,
@@ -130,43 +134,43 @@ export function generateArticleMetadata(
 }
 
 export function generateJsonLd(
-  config: MetadataConfig & { datePublished?: string; dateModified?: string },
+  config: MetadataConfig & { datePublished?: string; dateModified?: string }
 ) {
   const {
     title,
-    description = ABOUT_SITE.join(' '),
-    path = '',
+    description = ABOUT_SITE.join(" "),
+    path = "",
     author = MY_NAME,
     datePublished,
     dateModified,
     tags = [],
   } = config;
 
-  const url = `${BASE_URL}${path}`;
+  const url = `${SITE_URL}${path}`;
 
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    "@context": "https://schema.org",
+    "@type": "Article",
     headline: title,
     description,
-    image: `${BASE_URL}${DEFAULT_OG_IMAGE}`,
+    image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
     author: {
-      '@type': 'Person',
+      "@type": "Person",
       name: author,
-      url: BASE_URL,
+      url: SITE_URL,
     },
     publisher: {
-      '@type': 'Person',
+      "@type": "Person",
       name: MY_NAME,
-      url: BASE_URL,
+      url: SITE_URL,
     },
     url,
     datePublished,
     dateModified,
-    keywords: tags.join(', '),
+    keywords: tags.join(", "),
     mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': url,
+      "@type": "WebPage",
+      "@id": url,
     },
   };
 }
