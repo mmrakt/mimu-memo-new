@@ -3,14 +3,14 @@ name: Auto Issue Resolver
 on:
   schedule:
     # JST 23:00-06:00の間、30分ごとに実行
-    - cron: '0,30 14-20 * * *'  # UTC 14:00-20:30 (JST 23:00-05:30)
-    - cron: '0 21 * * *'        # UTC 21:00 (JST 06:00)
+    - cron: "0,30 14-20 * * *" # UTC 14:00-20:30 (JST 23:00-05:30)
+    - cron: "0 21 * * *" # UTC 21:00 (JST 06:00)
   workflow_dispatch: # 手動実行
 
 jobs:
   process-issue:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Find and process highest priority issue
         uses: actions/github-script@v7
@@ -19,9 +19,9 @@ jobs:
           script: |
             const priorities = ['high', 'middle', 'low'];
             const processedLabel = 'claude-code-requested';
-            
+
             console.log('🔍 Searching for unprocessed issues...');
-            
+
             for (const priority of priorities) {
               console.log(`Checking ${priority} priority issues`);
               
@@ -57,7 +57,7 @@ jobs:
                     '**説明**:',
                     unprocessedIssue.body || '説明なし',
                     '',
-                    '具体的な実装方針と必要なコード変更を提案してください。'
+                    '具体的な実装方針と必要なコード変更をPRを作成して提案してください。'
                   ].join('\n')
                 });
                 
@@ -73,5 +73,5 @@ jobs:
                 return; // 1つ処理したら終了
               }
             }
-            
+
             console.log('ℹ️ No unprocessed issues found');
