@@ -57,6 +57,12 @@ importers:
       '@biomejs/biome':
         specifier: ^2.0.6
         version: 2.1.1
+      '@biomejs/cli-darwin-arm64':
+        specifier: ^2.1.1
+        version: 2.1.1
+      '@esbuild/darwin-arm64':
+        specifier: ^0.25.6
+        version: 0.25.6
       '@tailwindcss/oxide-darwin-arm64':
         specifier: ^4.1.11
         version: 4.1.11
@@ -2481,8 +2487,7 @@ snapshots:
       '@biomejs/cli-win32-arm64': 2.1.1
       '@biomejs/cli-win32-x64': 2.1.1
 
-  '@biomejs/cli-darwin-arm64@2.1.1':
-    optional: true
+  '@biomejs/cli-darwin-arm64@2.1.1': {}
 
   '@biomejs/cli-darwin-x64@2.1.1':
     optional: true
@@ -2544,8 +2549,7 @@ snapshots:
   '@esbuild/android-x64@0.25.6':
     optional: true
 
-  '@esbuild/darwin-arm64@0.25.6':
-    optional: true
+  '@esbuild/darwin-arm64@0.25.6': {}
 
   '@esbuild/darwin-x64@0.25.6':
     optional: true
