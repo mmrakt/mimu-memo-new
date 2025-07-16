@@ -9,7 +9,10 @@ import remarkGfm from 'remark-gfm';
 import AnimatedBackground from '@/_components/AnimatedBackground';
 import { getTagIconPath } from '@/memo/components/utils';
 import { getAllMemoSlugs, getMemoBySlug } from '@/memo/utils';
+import MarkdownWithTOC from './MarkdownWithTOC';
+import TableOfContents from './TableOfContents';
 import styles from './markdown.module.css';
+import { extractHeadings } from './toc-utils';
 
 interface MemoDetailPageProps {
   params: Promise<{
@@ -55,6 +58,9 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
 
   const { metadata, Component, content, isMarkdown } = memo;
 
+  // Extract headings from markdown content for TOC
+  const headings = isMarkdown && content ? extractHeadings(content) : [];
+
   return (
     <div className="relative min-h-screen">
       <AnimatedBackground />
@@ -97,18 +103,29 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
           </header>
 
           <div className="p-8 space-y-6">
-            {isMarkdown && content ? (
-              <div className={styles.markdown}>
-                <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
-                  {content}
-                </ReactMarkdown>
+            {/* Mobile TOC */}
+            {isMarkdown && headings.length > 0 && (
+              <div className="lg:hidden mb-6">
+                <TableOfContents headings={headings} variant="mobile" />
               </div>
+            )}
+
+            {/* Content */}
+            {isMarkdown && content ? (
+              <MarkdownWithTOC content={content} headings={headings} className={styles.markdown} />
             ) : Component ? (
               <Component />
             ) : null}
           </div>
         </article>
       </div>
+
+      {/* Desktop TOC positioned outside the article */}
+      {isMarkdown && headings.length > 0 && (
+        <div className="hidden lg:block">
+          <TableOfContents headings={headings} variant="desktop" />
+        </div>
+      )}
     </div>
   );
 }
