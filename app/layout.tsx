@@ -1,19 +1,21 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
-import './globals.css';
-import 'highlight.js/styles/github-dark.css';
-import Footer from '@/_components/Footer';
-import Navigation from '@/_components/Navigation';
-import { generateMetadata } from '@/_utils/metadata';
+import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import "highlight.js/styles/github-dark.css";
+import Footer from "@/_components/Footer";
+import Navigation from "@/_components/Navigation";
+import { generateMetadata } from "@/_utils/metadata";
+
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = generateMetadata();
@@ -39,6 +41,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
