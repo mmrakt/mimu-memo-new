@@ -17,7 +17,7 @@ export const CAREER_CONFIG = {
       'from-emerald-500/10 to-emerald-500/5',
       'from-amber-500/10 to-amber-500/5',
     ],
-    VISIBLE_THRESHOLD: 150,
+    VISIBLE_THRESHOLD: 50,
   },
 
   // Skills level mapping
