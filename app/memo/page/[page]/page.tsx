@@ -43,7 +43,10 @@ export default async function MemoPageWithPagination({ params }: MemoPageProps) 
   const currentPosts = posts.slice(startIndex, endIndex);
 
   return (
-    <div className="relative min-h-screen">
+    <div
+      className="relative min-h-screen"
+      style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}
+    >
       <AnimatedBackground />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

@@ -63,7 +63,7 @@ export const HeroSection = memo(function HeroSection() {
           {/* Typewriter Effect Subtitle */}
           <div className="relative mb-8">
             <p
-              className={`text-xl md:text-2xl text-slate-400 font-space-grotesk transition-all duration-1000 ${
+              className={`text-xl md:text-2xl text-slate-400 dark:text-slate-400 light:text-slate-600 font-space-grotesk transition-all duration-1000 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
               style={{ transitionDelay: '300ms' }}

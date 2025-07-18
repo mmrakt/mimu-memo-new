@@ -56,7 +56,10 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
   const { metadata, Component, content, isMarkdown } = memo;
 
   return (
-    <div className="relative min-h-screen">
+    <div
+      className="relative min-h-screen"
+      style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}
+    >
       <AnimatedBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -68,7 +71,7 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
           Back to memo list
         </Link>
 
-        <article className="bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-2xl overflow-hidden">
+        <article className="bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm border border-indigo-500/20 dark:border-indigo-500/10 rounded-2xl overflow-hidden">
           <header className="text-center p-8 border-b border-indigo-500/10">
             <div className="mb-6">
               <Image
@@ -82,7 +85,7 @@ export default async function MemoDetailPage({ params }: MemoDetailPageProps) {
             <h1 className="text-4xl font-bold font-space-grotesk mb-6 bg-gradient-to-r from-indigo-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
               {metadata.title}
             </h1>
-            <div className="flex items-center justify-center gap-6 text-slate-400 flex-wrap">
+            <div className="flex items-center justify-center gap-6 text-slate-600 dark:text-slate-400 flex-wrap">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
                 <span>{metadata.pubDate}</span>

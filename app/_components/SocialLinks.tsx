@@ -35,7 +35,13 @@ export default function SocialLinks() {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 bg-indigo-500/10 border border-indigo-500/30 rounded-full flex items-center justify-center text-slate-200 hover:bg-indigo-500 hover:border-indigo-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300"
+            className="social-link w-10 h-10 rounded-full flex items-center justify-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+            style={{
+              backgroundColor: 'var(--card)',
+              borderColor: 'var(--primary)',
+              color: 'var(--text-primary)',
+              border: '1px solid',
+            }}
             aria-label={social.ariaLabel}
           >
             <Icon size={20} />

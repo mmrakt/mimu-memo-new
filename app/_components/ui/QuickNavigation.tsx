@@ -42,7 +42,7 @@ export const QuickNavigation = memo(function QuickNavigation() {
       <div className="max-w-6xl mx-auto">
         <h2
           id="navigation-heading"
-          className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-200"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-200 dark:text-slate-200 light:text-slate-800"
         >
           Navigation
         </h2>
@@ -53,7 +53,7 @@ export const QuickNavigation = memo(function QuickNavigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group block p-8 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 opacity-0 animate-fade-in-up focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900`}
+                className={`group block p-8 bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/80 backdrop-blur-sm border border-indigo-500/10 dark:border-indigo-500/10 light:border-slate-200 rounded-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 opacity-0 animate-fade-in-up focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900 dark:focus:ring-offset-slate-900 light:focus:ring-offset-white`}
                 style={{
                   animationDelay: `${index * 200}ms`,
                   animationFillMode: 'forwards',
@@ -65,10 +65,12 @@ export const QuickNavigation = memo(function QuickNavigation() {
                 >
                   <Icon size={24} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-slate-100 group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-indigo-400 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-400 mb-4">{item.description}</p>
+                <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 mb-4">
+                  {item.description}
+                </p>
                 <div className="flex items-center text-indigo-400 group-hover:text-cyan-400 transition-colors">
                   <span className="text-sm font-medium">Read more</span>
                   <ArrowRight

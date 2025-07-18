@@ -56,13 +56,13 @@ export default function UrlPagination({
       {currentPage > 1 ? (
         <Link
           href={getPageUrl(currentPage - 1)}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 hover:text-indigo-400 transition-colors"
+          className="flex items-center gap-1 px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-indigo-400 transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
           Prev
         </Link>
       ) : (
-        <span className="flex items-center gap-1 px-3 py-2 text-sm text-slate-600 cursor-not-allowed">
+        <span className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 dark:text-slate-600 cursor-not-allowed">
           <ChevronLeft className="w-4 h-4" />
           Prev
         </span>
@@ -75,7 +75,7 @@ export default function UrlPagination({
             // Use a unique key based on position in the array rather than index
             const dotsKey = index === 1 ? 'dots-left' : 'dots-right';
             return (
-              <span key={dotsKey} className="px-3 py-2 text-slate-500">
+              <span key={dotsKey} className="px-3 py-2 text-slate-400 dark:text-slate-500">
                 ...
               </span>
             );
@@ -93,7 +93,7 @@ export default function UrlPagination({
                 ${
                   isCurrentPage
                     ? 'bg-indigo-500 text-white shadow-lg'
-                    : 'text-slate-400 hover:text-indigo-400 hover:bg-slate-800/50'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-indigo-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                 }
               `}
             >
@@ -107,13 +107,13 @@ export default function UrlPagination({
       {currentPage < totalPages ? (
         <Link
           href={getPageUrl(currentPage + 1)}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 hover:text-indigo-400 transition-colors"
+          className="flex items-center gap-1 px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-indigo-400 transition-colors"
         >
           Next
           <ChevronRight className="w-4 h-4" />
         </Link>
       ) : (
-        <span className="flex items-center gap-1 px-3 py-2 text-sm text-slate-600 cursor-not-allowed">
+        <span className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 dark:text-slate-600 cursor-not-allowed">
           Next
           <ChevronRight className="w-4 h-4" />
         </span>

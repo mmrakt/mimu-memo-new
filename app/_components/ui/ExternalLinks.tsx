@@ -57,7 +57,7 @@ export const ExternalLinks = memo(function ExternalLinks() {
       <div className="max-w-6xl mx-auto">
         <h2
           id="external-links-heading"
-          className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-200"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-200 dark:text-slate-200 light:text-slate-800"
         >
           External links
         </h2>
@@ -68,7 +68,7 @@ export const ExternalLinks = memo(function ExternalLinks() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group block p-6 bg-slate-800/50 backdrop-blur-sm border border-indigo-500/10 rounded-xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 text-center opacity-0 animate-fade-in-up focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900`}
+              className={`group block p-6 bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/80 backdrop-blur-sm border border-indigo-500/10 dark:border-indigo-500/10 light:border-slate-200 rounded-xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 text-center opacity-0 animate-fade-in-up focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-slate-900 dark:focus:ring-offset-slate-900 light:focus:ring-offset-white`}
               style={{
                 animationDelay: `${index * 100}ms`,
                 animationFillMode: 'forwards',
@@ -78,7 +78,7 @@ export const ExternalLinks = memo(function ExternalLinks() {
               <div className="text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">
                 {link.icon}
               </div>
-              <h3 className="text-sm font-semibold mb-2 text-slate-100 group-hover:text-indigo-400 transition-colors">
+              <h3 className="text-sm font-semibold mb-2 text-slate-100 dark:text-slate-100 light:text-slate-800 group-hover:text-indigo-400 transition-colors">
                 {link.name}
               </h3>
               <ExternalLink

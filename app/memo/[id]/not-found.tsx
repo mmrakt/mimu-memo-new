@@ -3,14 +3,19 @@ import AnimatedBackground from '@/_components/AnimatedBackground';
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen">
+    <div
+      className="relative min-h-screen"
+      style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}
+    >
       <AnimatedBackground />
 
       <div className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="text-center">
           <h1 className="text-6xl font-bold text-indigo-500 mb-4">404</h1>
-          <h2 className="text-2xl font-semibold text-slate-100 mb-4">記事が見つかりません</h2>
-          <p className="text-slate-400 mb-8">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
+            記事が見つかりません
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-8">
             お探しのブログ記事は存在しないか、削除された可能性があります。
           </p>
           <Link
